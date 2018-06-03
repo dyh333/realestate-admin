@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('ngx-framework App', () => {
+describe('realestate-admin App', () => {
   let page: AppPage;
 
   beforeEach(() => {
