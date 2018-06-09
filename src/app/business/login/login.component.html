@@ -1,3 +1,40 @@
-<p>
-  login works!
-</p>
+<perfect-scrollbar  class="perfect-scrollbar" > 
+  <div class="login">
+    <div class="display-flex login-header">
+      <div class="header-logo"></div>
+    </div>
+    <div class="display-flex login-content">
+      <div class="display-flex auth-block">
+        <div class="login-form">
+          <h1>欢迎登录</h1>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="from-item" [ngClass]="{'has-error': (!account.valid && account.touched), 'has-success': (account.valid && account.touched)}">
+              <div class=" data-input">
+                <div class="account-input-icon"></div> 
+                <input [formControl]="account" type="text" class="form-control input-account" placeholder="请输入账号">
+              </div>
+            </div>
+            <div class="from-item" [ngClass]="{'has-error': (!password.valid && password.touched), 'has-success': (password.valid && password.touched)}">
+              <div class=" data-input">
+                <div class="pwd-input-icon"></div>
+                <input [formControl]="password" type="password" class="form-control" placeholder="请输入密码">
+              </div>
+            </div>
+            <div class="from-item">
+              <div class=" submit-button">
+                <button [disabled]="!form.valid" type="submit" class="btn btn-default btn-submit"
+                  [style.cursor]="form.valid?'pointer':'not-allowed'">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+              </div>
+            </div>
+          </form>
+          <div *ngIf="!isSubmitting&&loginErrorInfo!==undefined&&loginErrorInfo!==null" class=" errorInfo">
+            <i class="ion-alert-circled"></i>{{loginErrorInfo}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-footer">
+      <div *ngFor="let copyRight of copyRights">{{copyRight}}</div>
+    </div>
+  </div>
+</perfect-scrollbar>

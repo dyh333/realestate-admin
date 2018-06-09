@@ -1,0 +1,218 @@
+$login-assets-img-url:'/assets/img/login/';
+.display-flex {
+    /* Safari */
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.perfect-scrollbar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    ::ng-deep {
+        .ps-content {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.login {
+    width: 100%;
+    min-width: 1024px;
+    height: 100%;
+    min-height: 768px;
+    background-color: rgb(248, 248, 248);
+}
+
+.login-header {
+    width: 100%;
+    height: 15%;
+    min-height: 92px;
+}
+
+.header-logo {
+    width: 1024px;
+    height: 60px;
+    background-image: url($login-assets-img-url+'login_logo.png');
+    background-repeat: no-repeat;
+}
+
+.login-content {
+    width: 100%;
+    height: 70%;
+    min-height: 584px;
+    background-image: url($login-assets-img-url+'bg.png');
+    background-repeat: no-repeat;
+}
+
+.auth-block {
+    width: 1024px;
+    height: 100%;
+    justify-content: flex-end;
+    background-image: url($login-assets-img-url+'bg.png');
+    background-repeat: no-repeat;
+    background-position: center 0;
+}
+
+.login-form {
+    width: 300px;
+    height: 350px;
+    box-sizing: border-box;
+    padding: 35px 25px 40px;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+    background-color: #f8f8f8;
+    margin-bottom: 23px;
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+    font-size: 24px;
+    margin: 0;
+}
+
+.from-item {
+    width: 100%;
+}
+
+.has-success {
+    input.form-control {
+        border: 1px solid #8bd22f;
+    }
+}
+
+.has-error {
+    input.form-control {
+        border: 1px solid red;
+    }
+}
+
+.data-input {
+    width: 100%;
+    margin-top: 32px;
+    position: relative;
+}
+
+input.form-control {
+    display: block;
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    padding: .375rem .75rem .375rem 32px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    &:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.account-input-icon,
+.pwd-input-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 10px;
+    top: 13px;
+    background: url($login-assets-img-url+'icon.png');
+    background-repeat: no-repeat;
+}
+
+.account-input-icon {
+    background-position: 0 center;
+}
+
+.pwd-input-icon {
+    background-position: -16px center;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    &:disabled {
+        opacity: .65;
+    }
+}
+
+.submit-button {
+    margin-top: 32px;
+}
+
+.btn-submit {
+    width: 100%;
+    height: 45px;
+    color: rgba(0, 0, 0, 0.65);
+    border-radius: 3px;
+    background: #ffc740;
+    font-size: 18px;
+    font-weight: 700;
+    -webkit-box-shadow: 0 3px #e0ba55;
+    box-shadow: 0 3px #e0ba55;
+    &:focus {
+        outline: 0;
+    }
+}
+
+.errorInfo {
+    color: red;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.login-footer {
+    width: 100%;
+    height: calc(15% - 24px);
+    min-height: 92px;
+    text-align: center;
+    padding-top: 24px;
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+}
+
+::-webkit-input-placeholder {
+    color: #a1a1a1;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #a1a1a1;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #a1a1a1;
+}
+
+:-ms-input-placeholder {
+    color: #a1a1a1;
+}
