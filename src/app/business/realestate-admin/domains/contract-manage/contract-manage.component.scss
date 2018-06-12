@@ -1,0 +1,22 @@
+$left-content-width:240px;
+.host {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.left-content,
+.right-content {
+    float: left;
+    height: 100%;
+}
+
+.left-content {
+    width: $left-content-width;
+    border-right: 1px solid #999;
+}
+
+.right-content {
+    width:calc(100% - #{$left-content-width});
+}

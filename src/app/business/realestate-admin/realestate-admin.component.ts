@@ -17,6 +17,12 @@ export class RealestateAdminComponent implements OnInit {
   ngOnInit() {
   }
 
+  /** 点击菜单项
+   *
+   *
+   * @param {string} menuUrl 菜单对应的路径
+   * @memberof RealestateAdminComponent
+   */
   clickMenuItem(menuUrl: string): void {
     this.router.navigate([menuUrl]);
   }
