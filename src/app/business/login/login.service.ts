@@ -23,7 +23,7 @@ export class LoginService {
             // setTimeout(() => {
                 observer.next(null);
                 // 导航到默认的地址
-                this.router.navigate(['/dashboard' ]);
+                this.router.navigate(['/realestateAdmin' ]);
             // }, 2000);
         });
     }

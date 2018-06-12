@@ -8,7 +8,7 @@ export const routes: Routes = [
     loadChildren: './../business/login/login.module#LoginModule'
   },
   {
-    path: 'dashboard',
-    loadChildren: './../business/dashboard/dashboard.module#DashboardModule'
+    path: 'realestateAdmin',
+    loadChildren: './../business/realestate-admin/realestate-admin.module#RealestateAdminModule'
   }
 ];
