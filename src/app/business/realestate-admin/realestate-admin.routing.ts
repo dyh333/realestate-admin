@@ -6,6 +6,13 @@ const routes: Routes = [
   {
     path: '',
     component: RealestateAdminComponent,
+    children: [
+      {
+        path: 'contractManage',
+        loadChildren: './domains/contract-manage/contract-manage.module#ContractManageModule'
+      },
+      { path: '', redirectTo: 'contractManage', pathMatch: 'full' }
+    ]
   },
 ];
 @NgModule({

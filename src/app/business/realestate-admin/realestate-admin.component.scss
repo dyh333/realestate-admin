@@ -1,0 +1,41 @@
+$left-content-width-collapsed:80px;
+$left-content-width-notCollapsed:240px;
+.host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.realestate-admin {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.left-content,
+.right-content {
+    float: left;
+    height: 100%;
+}
+
+.left-content {
+    width: $left-content-width-notCollapsed;
+}
+
+.right-content {
+    width: calc(100% - #{$left-content-width-notCollapsed});
+}
+
+.isCollapsed {
+    .left-content {
+        width: $left-content-width-collapsed;
+    }
+    .right-content {
+        width: calc(100% - #{$left-content-width-collapsed});
+    }
+}
+
+.nz-menu {
+    width: 100%;
+    height: 100%;
+}
