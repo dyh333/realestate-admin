@@ -5,10 +5,10 @@ export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'login',
-    loadChildren: '../business/login/login.module#LoginModule'
+    loadChildren: './../business/login/login.module#LoginModule'
   },
   {
     path: 'dashboard',
-    loadChildren: '../business/dashboard/dashboard.module#DashboardModule'
+    loadChildren: './../business/dashboard/dashboard.module#DashboardModule'
   }
 ];
