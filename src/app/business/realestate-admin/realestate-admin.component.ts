@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class RealestateAdminComponent implements OnInit {
   // 左侧菜单是否折叠
-  isCollapsed: boolean = false;
+  isCollapsed: boolean = true;
 
   constructor(
     private router:Router

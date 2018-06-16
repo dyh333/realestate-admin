@@ -4,7 +4,7 @@
       <img class="logo" src="./assets/img/realestate-admin/logo.png">
     </div>
     <div class="right-header">
-      <nz-dropdown >
+      <nz-dropdown>
         <a nz-dropdown>
           管理员 <i class="anticon anticon-caret-down"></i>
         </a>
@@ -15,9 +15,11 @@
         </ul>
       </nz-dropdown>
     </div>
+    <!-- 清除浮动 -->
+    <div style="clear: both;"></div>
   </div>
   <div class="left-content">
-    <ul class="nz-menu" nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed">
+    <ul class="nz-menu" nz-menu [nzMode]="'inline'" nzTheme='light' [nzInlineCollapsed]="isCollapsed">
       <li nz-menu-item (click)="clickMenuItem('./realestateAdmin/contractManage')">
         <span title>
           <i class="anticon anticon-mail"></i>

@@ -7,78 +7,163 @@ import { NzTreeNode } from 'ng-zorro-antd';
   styleUrls: ['./contract-manage.component.scss']
 })
 export class ContractManageComponent implements OnInit {
-  expandKeys = ['1001', '10001'];
+
+  contractTotal: number = 120;
+
+  expandKeys = ['1001', '1002'];
   nodes = [
     new NzTreeNode({
-      title: 'root1',
+      title: '小区1',
       key: '1001',
       children: [
         {
-          title: 'child1',
+          title: '1幢',
           key: '10001',
-          children: [
-            {
-              title: 'child1.2',
-              key: '100012',
-              children: [
-                {
-                  title: 'grandchild1.2.1',
-                  key: '1000121',
-                  isLeaf: true,
-                  disabled: true
-                },
-                {
-                  title: 'grandchild1.2.2',
-                  key: '1000122',
-                  isLeaf: true
-                }
-              ]
-            }
-          ]
+          isLeaf: true,
         },
         {
-          title: 'child2',
+          title: '2幢',
           key: '10002',
-          children: [
-            {
-              title: 'grandchild2.1',
-              key: '1000122',
-              isLeaf: true
-            },
-            {
-              title: 'grandchild2.2',
-              key: '1000123',
-              isLeaf: true
-            }
-          ]
+          isLeaf: true,
         }
       ]
     }),
     new NzTreeNode({
-      title: 'root2',
+      title: '小区2',
       key: '1002',
       children: [
         {
-          title: 'child2.1',
+          title: '50幢',
           key: '10021',
-          children: [],
-          disableCheckbox: true
+          isLeaf: true,
         },
         {
-          title: 'child2.2',
+          title: '51幢',
           key: '10022',
-          children: [
-            {
-              title: 'grandchild2.2.1',
-              key: '100221',
-              isLeaf: true
-            }
-          ]
+          isLeaf: true,
         }
       ]
     })
   ];
-  
+
+  allChecked = false;
+  indeterminate = false;
+  displayData = [];
+  data = [
+    {
+      name: '中南世纪城二期',
+      buildingName: '32',
+      roomName: '120',
+      address: '中南世纪城二期',
+      landArea: '32',
+      roomArea: '120',
+      price: '120',
+      isLoan: '是',
+      loanBank: '建设银行',
+      agencyFee: '500',
+      isHavePark: '否',
+      progress: '资料提交',
+      checked: false,
+      disabled: false
+    },
+    {
+      name: '中南世纪城二期',
+      buildingName: '32',
+      roomName: '120',
+      address: '中南世纪城二期',
+      landArea: '32',
+      roomArea: '120',
+      price: '120',
+      isLoan: '是',
+      loanBank: '建设银行',
+      agencyFee: '500',
+      isHavePark: '否',
+      progress: '资料提交',
+      checked: false,
+      disabled: false
+    },
+    {
+      name: '中南世纪城二期',
+      buildingName: '32',
+      roomName: '120',
+      address: '中南世纪城二期',
+      landArea: '32',
+      roomArea: '120',
+      price: '120',
+      isLoan: '是',
+      loanBank: '建设银行',
+      agencyFee: '500',
+      isHavePark: '否',
+      progress: '资料提交',
+      checked: false,
+      disabled: false
+    },
+    {
+      name: '中南世纪城二期',
+      buildingName: '32',
+      roomName: '120',
+      address: '中南世纪城二期',
+      landArea: '32',
+      roomArea: '120',
+      price: '120',
+      isLoan: '是',
+      loanBank: '建设银行',
+      agencyFee: '500',
+      isHavePark: '否',
+      progress: '资料提交',
+      checked: false,
+      disabled: false
+    },
+    {
+      name: '中南世纪城二期',
+      buildingName: '32',
+      roomName: '120',
+      address: '中南世纪城二期',
+      landArea: '32',
+      roomArea: '120',
+      price: '120',
+      isLoan: '是',
+      loanBank: '建设银行',
+      agencyFee: '500',
+      isHavePark: '否',
+      progress: '资料提交',
+      checked: false,
+      disabled: false
+    },
+    {
+      name: '中南世纪城二期',
+      buildingName: '32',
+      roomName: '120',
+      address: '中南世纪城二期',
+      landArea: '32',
+      roomArea: '120',
+      price: '120',
+      isLoan: '是',
+      loanBank: '建设银行',
+      agencyFee: '500',
+      isHavePark: '否',
+      progress: '资料提交',
+      checked: false,
+      disabled: false
+    },
+    {
+      name: '中南世纪城二期',
+      buildingName: '32',
+      roomName: '120',
+      address: '中南世纪城二期',
+      landArea: '32',
+      roomArea: '120',
+      price: '120',
+      isLoan: '是',
+      loanBank: '建设银行',
+      agencyFee: '500',
+      isHavePark: '否',
+      progress: '资料提交',
+      checked: false,
+      disabled: false
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {
@@ -86,6 +171,27 @@ export class ContractManageComponent implements OnInit {
 
   mouseAction(name: string, e: any): void {
     console.log(name, e);
+  }
+
+  currentPageDataChange($event: Array<{ name: string; age: number; address: string; checked: boolean; disabled: boolean; }>): void {
+    this.displayData = $event;
+    this.refreshStatus();
+  }
+
+  refreshStatus(): void {
+    const allChecked = this.displayData.filter(value => !value.disabled).every(value => value.checked === true);
+    const allUnChecked = this.displayData.filter(value => !value.disabled).every(value => !value.checked);
+    this.allChecked = allChecked;
+    this.indeterminate = (!allChecked) && (!allUnChecked);
+  }
+
+  checkAll(value: boolean): void {
+    this.displayData.forEach(data => {
+      if (!data.disabled) {
+        data.checked = value;
+      }
+    });
+    this.refreshStatus();
   }
 
 }

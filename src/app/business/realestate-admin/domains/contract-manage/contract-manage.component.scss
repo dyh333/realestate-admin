@@ -1,4 +1,6 @@
+$contract-manage-header-height:44px;
 $left-content-width:240px;
+$border-color:rgb(232, 232, 232);
 .host {
     display: block;
     width: 100%;
@@ -6,17 +8,73 @@ $left-content-width:240px;
     overflow: hidden;
 }
 
+.contract-manage-header {
+    width: 100%;
+    height: $contract-manage-header-height;
+    border-bottom: 1px solid $border-color;
+    line-height: $contract-manage-header-height;
+}
+
+.function-module-name,
+.contract-name,
+.function-list {
+    display: inline-block;
+    height: $contract-manage-header-height;
+    padding: 0 10px;
+    line-height: $contract-manage-header-height;
+}
+
+.function-module-name,
+.contract-name {
+    color: #000;
+    font-weight: bold;
+}
+
+.function-module-name {
+    border-right: 1px solid #000;
+}
+
+button[nz-button] {
+    height: 28px;
+    margin-right: 8px;
+    line-height: 28px;
+}
+
 .left-content,
 .right-content {
     float: left;
-    height: 100%;
+    height: calc(100% - #{$contract-manage-header-height});
 }
 
 .left-content {
     width: $left-content-width;
-    border-right: 1px solid #999;
+    border-right: 1px solid $border-color;
+    padding: 10px;
 }
 
 .right-content {
     width:calc(100% - #{$left-content-width});
+    padding: 0 20px;
+}
+
+.search-result {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid $border-color;
+    line-height: 50px;
+    text-align: center;
+}
+
+.na-table{
+    ::ng-deep{
+        nz-pagination{
+            text-align: center;
+        }
+        .ant-pagination{
+            float: none;
+        }
+        th{
+            font-weight: bold;
+        }
+    }
 }
