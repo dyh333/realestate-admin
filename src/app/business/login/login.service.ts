@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class LoginService {
@@ -24,7 +23,7 @@ export class LoginService {
             // setTimeout(() => {
                 observer.next(null);
                 // 导航到默认的地址
-                this.router.navigate(['/dashboard' ]);
+                this.router.navigate(['/realestateAdmin' ]);
             // }, 2000);
         });
     }
