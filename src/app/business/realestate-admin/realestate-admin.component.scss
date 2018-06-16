@@ -1,3 +1,4 @@
+$header-content-height:50px;
 $left-content-width-collapsed:80px;
 $left-content-width-notCollapsed:240px;
 .host {
@@ -12,10 +13,39 @@ $left-content-width-notCollapsed:240px;
     overflow: hidden;
 }
 
+.header-content {
+    width: 100%;
+    height: $header-content-height;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.left-header {
+    float: left;
+    height: 100%;
+}
+
+.logo {
+    height: 100%;
+}
+
+.right-header {
+    float: right;
+    width: 130px;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    color: #3d3d3d;
+    ::ng-deep {
+        .ant-dropdown-link {
+            color: #3d3d3d;
+        }
+    }
+}
+
 .left-content,
 .right-content {
     float: left;
-    height: 100%;
+    height: calc(100% - #{$header-content-height});
 }
 
 .left-content {
