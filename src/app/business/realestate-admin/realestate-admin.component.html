@@ -20,39 +20,17 @@
   </div>
   <div class="left-content">
     <ul class="nz-menu" nz-menu [nzMode]="'inline'" nzTheme='light' [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item (click)="clickMenuItem('./realestateAdmin/groupManage')">
+        <span title>
+          <i class="anticon anticon-table"></i>
+          <span>楼盘管理</span>
+        </span>
+      </li>
       <li nz-menu-item (click)="clickMenuItem('./realestateAdmin/contractManage')">
         <span title>
-          <i class="anticon anticon-mail"></i>
+          <i class="anticon anticon-form"></i>
           <span>合同管理</span>
         </span>
-      </li>
-      <li nz-submenu>
-        <span title>
-          <i class="anticon anticon-appstore"></i>
-          <span>Navigation Two</span>
-        </span>
-        <ul>
-          <li nz-menu-item>Option 5</li>
-          <li nz-menu-item>Option 6</li>
-          <li nz-submenu>
-            <span title>Submenu</span>
-            <ul>
-              <li nz-menu-item>Option 7</li>
-              <li nz-menu-item>Option 8</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu>
-        <span title>
-          <i class="anticon anticon-setting"></i>
-          <span>Navigation Three</span>
-        </span>
-        <ul>
-          <li nz-menu-item>Option 9</li>
-          <li nz-menu-item>Option 10</li>
-          <li nz-menu-item>Option 11</li>
-        </ul>
       </li>
     </ul>
   </div>

@@ -8,8 +8,12 @@ const routes: Routes = [
     component: RealestateAdminComponent,
     children: [
       {
+        path: 'groupManage',
+        loadChildren: './../group-manage/group-manage.module#GroupManageModule'
+      },
+      {
         path: 'contractManage',
-        loadChildren: './domains/contract-manage/contract-manage.module#ContractManageModule'
+        loadChildren: './../contract-manage/contract-manage.module#ContractManageModule'
       },
       { path: '', redirectTo: 'contractManage', pathMatch: 'full' }
     ]
