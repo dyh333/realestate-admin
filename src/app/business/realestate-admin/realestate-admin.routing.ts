@@ -15,7 +15,7 @@ const routes: Routes = [
         path: 'contractManage',
         loadChildren: './../contract-manage/contract-manage.module#ContractManageModule'
       },
-      { path: '', redirectTo: 'contractManage', pathMatch: 'full' }
+      { path: '', redirectTo: 'groupManage', pathMatch: 'full' }
     ]
   },
 ];

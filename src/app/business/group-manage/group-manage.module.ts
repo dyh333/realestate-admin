@@ -1,19 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GroupManageComponent } from './group-manage.component';
 import { GroupManageRoutesModule } from './group-manage.routing';
 import {
   NzTableModule,
-  NzButtonModule
+  NzButtonModule,
+  NzModalModule,
+  NzFormModule,
+  NzToolTipModule,
+  NzInputModule,
+  NzGridModule,
+  NzInputNumberModule
 } from 'ng-zorro-antd';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     NzButtonModule,
     NzTableModule,
+    NzModalModule,
+    NzFormModule,
+    NzToolTipModule,
+    NzInputModule,
+    NzGridModule,
+    NzInputNumberModule,
     GroupManageRoutesModule,
   ],
   declarations: [GroupManageComponent]
