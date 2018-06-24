@@ -6,6 +6,7 @@ import { GroupManageComponent } from './group-manage.component';
   imports: [
     CommonModule
   ],
-  declarations: [GroupManageComponent]
+  declarations: [GroupManageComponent],
+  entryComponents: []
 })
 export class GroupManageModule { }
