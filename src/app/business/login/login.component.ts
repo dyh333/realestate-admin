@@ -28,11 +28,11 @@ export class LoginComponent implements OnInit {
   ) {
     this.form = fb.group({
       account: [
-        '',
+        'user',
         Validators.compose([Validators.required, Validators.minLength(3)])
       ],
       password: [
-        '',
+        '123',
         Validators.compose([Validators.required, Validators.minLength(3)])
       ]
     });

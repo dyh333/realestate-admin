@@ -4,6 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GroupManageComponent } from './group-manage.component';
 import { GroupManageRoutesModule } from './group-manage.routing';
 import {
+  ShowGroupListComponent,
+  AddUpdateGroupModalComponent,
+  DeleteGroupsModalComponent
+} from './components';
+import {
   NzTableModule,
   NzButtonModule,
   NzModalModule,
@@ -29,7 +34,12 @@ import {
     NzInputNumberModule,
     GroupManageRoutesModule,
   ],
-  declarations: [GroupManageComponent],
+  declarations: [
+    GroupManageComponent,
+    ShowGroupListComponent,
+    AddUpdateGroupModalComponent,
+    DeleteGroupsModalComponent,
+  ],
   entryComponents: []
 })
 export class GroupManageModule { }

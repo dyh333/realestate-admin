@@ -1,0 +1,16 @@
+<nz-modal *ngIf="isDelModalVisible" nzWrapClassName="vertical-center-modal" [(nzVisible)]="isDelModalVisible"
+  [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="closeTheDelModal()">
+  <ng-template #modalTitle>
+    <i class="anticon anticon-question-circle" style="margin-right:10px;color: #faad14;"></i>注意
+  </ng-template>
+  <ng-template #modalContent>
+    <b *ngIf="toDelDataList.length>0">您确认想删除选中的{{toDelDataList.length}}条楼盘？</b>
+    <b *ngIf="toDelDataList.length<=0">请选项要删除的楼盘!</b>
+  </ng-template>
+  <ng-template #modalFooter>
+    <button nz-button nzType="primary" (click)="confirmTheDelModal()">确认</button>
+    <ng-container *ngIf="toDelDataList.length>0">
+      <button nz-button nzType="default" (click)="closeTheDelModal()">取消</button>
+    </ng-container>
+  </ng-template>
+</nz-modal>
