@@ -29,6 +29,7 @@ import {
     NzInputNumberModule,
     GroupManageRoutesModule,
   ],
-  declarations: [GroupManageComponent]
+  declarations: [GroupManageComponent],
+  entryComponents: []
 })
 export class GroupManageModule { }
