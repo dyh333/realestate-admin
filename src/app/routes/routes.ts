@@ -9,6 +9,6 @@ export const routes: Routes = [
   },
   {
     path: 'realestateAdmin',
-    loadChildren: './../business/realestate-admin/realestate-admin.module#RealestateAdminModule'
+    loadChildren: './../business/layout/layout.module#LayoutModule'
   }
 ];
