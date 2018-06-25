@@ -1,8 +1,6 @@
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { ModuleWithProviders } from '@angular/core';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'login',
     loadChildren: './../business/login/login.module#LoginModule'
@@ -10,5 +8,6 @@ export const routes: Routes = [
   {
     path: 'realestateAdmin',
     loadChildren: './../business/layout/layout.module#LayoutModule'
-  }
+  },
+  { path: '', redirectTo: 'realestateAdmin', pathMatch: 'full' },
 ];

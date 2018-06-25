@@ -5,7 +5,7 @@ import { GroupManageComponent } from './group-manage.component';
 import { GroupManageRoutesModule } from './group-manage.routing';
 import {
   ShowGroupListComponent,
-  AddUpdateGroupModalComponent,
+  CreateUpdateGroupModalComponent,
   DeleteGroupsModalComponent
 } from './components';
 import {
@@ -16,7 +16,8 @@ import {
   NzToolTipModule,
   NzInputModule,
   NzGridModule,
-  NzInputNumberModule
+  NzInputNumberModule,
+  NzSpinModule
 } from 'ng-zorro-antd';
 
 @NgModule({
@@ -32,12 +33,13 @@ import {
     NzInputModule,
     NzGridModule,
     NzInputNumberModule,
+    NzSpinModule,
     GroupManageRoutesModule,
   ],
   declarations: [
     GroupManageComponent,
     ShowGroupListComponent,
-    AddUpdateGroupModalComponent,
+    CreateUpdateGroupModalComponent,
     DeleteGroupsModalComponent,
   ],
   entryComponents: []

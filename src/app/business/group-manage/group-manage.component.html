@@ -1,20 +1,22 @@
-<div class="group-manage-header">
-  <div class="function-module-name">
-    <span class="module-name">楼盘管理</span>
+<nz-spin [nzSize]="'large'" [nzSpinning]="isLoading"> 
+  <div class="group-manage-header">
+    <div class="function-module-name">
+      <span class="module-name">楼盘管理</span>
+    </div>
+    <div class="function-list">
+      <button nz-button nzType="primary" (click)="createAGroup()">新增</button>
+      <button nz-button nzType="default" (click)="deleteGroups()">删除</button>
+    </div>
+    <div style="clear: both"></div>
   </div>
-  <div class="function-list">
-    <button nz-button nzType="primary" (click)="addAGroup()">新增</button>
-    <button nz-button nzType="default" (click)="deleteGroups()">删除</button>
+  <div class="group-manage-content">
+    <app-show-group-list [groupTotal]="groupTotal" [groupList]="groupList" (groupListChange)="displayGroupList=$event"
+      (choosedGroup)="editTheGroup($event)" (pageNoChange)="changePageNo($event)"></app-show-group-list>
   </div>
-  <div style="clear: both"></div>
-</div>
-<div class="group-manage-content">
-  <app-show-group-list [groupTotal]="groupTotal" [groupList]="groupList" (groupListChange)="displayGroupList=$event"
-    (choosedGroup)="editTheGroup($event)" (pageNoChange)="changePageNo($event)"></app-show-group-list>
-</div>
-<!-- 新增或者编辑楼盘 -->
-<app-add-update-group-modal [groupItem]="groupItem" [isAdd]="isAdd" [(isAddOrUpdataModalVisible)]="isAddOrUpdataModalVisible"
-  (groupItemChange)="addOrUpdateTheGroupItem($event)"></app-add-update-group-modal>
-<!-- 删除功能的确认框 -->
-<app-delete-groups-modal [(isDelModalVisible)]="isDelModalVisible" [toDelDataList]="toDelDataList"
-  (isToDelete)="isToDelete($event)"></app-delete-groups-modal>
+  <!-- 新增或者编辑楼盘 -->
+  <app-create-update-group-modal [groupItem]="groupItem" [isCreate]="isCreate" [(isCreateOrUpdataModalVisible)]="isCreateOrUpdataModalVisible" 
+    (groupItemChange)="createOrUpdateTheGroupItem($event)"></app-create-update-group-modal> 
+  <!-- 删除功能的确认框 -->
+  <app-delete-groups-modal [(isDelModalVisible)]="isDelModalVisible" [toDelDataList]="toDelDataList"
+    (isToDelete)="isToDelete($event)"></app-delete-groups-modal>
+</nz-spin>

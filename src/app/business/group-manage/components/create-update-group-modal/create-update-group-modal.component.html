@@ -1,5 +1,5 @@
-<nz-modal *ngIf="isAddOrUpdataModalVisible" nzWrapClassName="vertical-center-modal"
-  [(nzVisible)]="isAddOrUpdataModalVisible" [nzTitle]="modalTitle" [nzContent]="modalContent"
+<nz-modal *ngIf="isCreateOrUpdataModalVisible" nzWrapClassName="vertical-center-modal"
+  [(nzVisible)]="isCreateOrUpdataModalVisible" [nzTitle]="modalTitle" [nzContent]="modalContent"
   [nzFooter]="modalFooter" (nzOnCancel)="closeTheModal()">
   <ng-template #modalTitle>
     {{theModalTitle}}
