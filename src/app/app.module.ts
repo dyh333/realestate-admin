@@ -15,7 +15,7 @@ registerLocaleData(zh);
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgZorroAntdModule,
+    NgZorroAntdModule.forRoot(),
     RoutesModule
   ],
   declarations: [AppComponent],
