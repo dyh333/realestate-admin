@@ -1,0 +1,32 @@
+<div class="search-result">
+  共找到
+  <strong>{{groupTotal}}</strong>
+  个楼盘
+</div>
+<div class="search-content">
+  <nz-table class="na-table" #rowSelectionTable [nzData]="groupList" (nzCurrentPageDataChange)="currentPageDataChange($event)"
+    (nzPageIndexChange)="changePageNo($event)" (nzPageSizeChange)="refreshStatus()">
+    <thead>
+      <tr>
+        <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+        <th>楼盘名称</th>
+        <th>建筑物数量</th>
+        <th>户室数量</th>
+        <th>小区名</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataItem of rowSelectionTable.data">
+        <td nzShowCheckbox [(nzChecked)]="dataItem['checked']" (nzCheckedChange)="refreshStatus($event)"></td>
+        <td>{{dataItem.Name}}</td>
+        <td>{{dataItem.BuildingCount}}</td>
+        <td>{{dataItem.RoomCount}}</td>
+        <td>{{dataItem.CourtName}}</td>
+        <td>
+          <a (click)="chooseTheGroup(dataItem)">编辑</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
