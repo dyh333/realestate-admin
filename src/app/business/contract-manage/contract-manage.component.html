@@ -17,8 +17,10 @@
   </nz-tree>
 </div>
 <div class="right-content">
-  <div class="search-result">共找到
-    <strong>{{contractTotal}}</strong>个合同</div>
+  <div class="search-result">
+    共找到
+    <span class="contractTotal">{{contractTotal}}</span>
+    个合同</div>
   <div class="search-content">
     <nz-table class="na-table" #rowSelectionTable [nzData]="data" (nzCurrentPageDataChange)="currentPageDataChange($event)"
       (nzPageIndexChange)="refreshStatus()" (nzPageSizeChange)="refreshStatus()">

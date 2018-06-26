@@ -1,4 +1,4 @@
-$contract-manage-header-height:44px;
+$contract-manage-header-height:50px;
 $left-content-width:240px;
 $border-color:rgb(232, 232, 232);
 .host {
@@ -12,6 +12,7 @@ $border-color:rgb(232, 232, 232);
 .contract-manage-header {
     width: 100%;
     height: $contract-manage-header-height;
+    border-left: 4px solid #2170c1;
     border-bottom: 1px solid $border-color;
     line-height: $contract-manage-header-height;
     font-family: MicrosoftYaHei;
@@ -22,7 +23,7 @@ $border-color:rgb(232, 232, 232);
 .function-list {
     float: left;
     height: $contract-manage-header-height;
-    padding: 0 10px;
+    padding: 0 30px;
     line-height: $contract-manage-header-height;
 }
 
@@ -33,20 +34,22 @@ $border-color:rgb(232, 232, 232);
 }
 
 .function-module-name {
-    padding: 12px 0;
-    line-height: 20px;
+    padding: 10px 0;
 }
 
 .module-name {
     display: block;
-    padding: 0 10px;
+    height: 30px;
+    padding: 0 30px 0 16px;
+    line-height: 30px;
     border-right: 1px solid #000;
+    font-size: 14px;
 }
 
 button[nz-button] {
-    height: 28px;
+    height: 30px;
     margin-right: 8px;
-    line-height: 28px;
+    line-height: 30px;
 }
 
 .left-content,
@@ -74,6 +77,12 @@ button[nz-button] {
     text-align: center;
 }
 
+.contractTotal {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .na-table {
     ::ng-deep {
         nz-pagination {
@@ -83,7 +92,16 @@ button[nz-button] {
             float: none;
         }
         th {
+            background-color: #f7f7f7;
+            color: #333;
+            font-size: 14px;
             font-weight: bold;
+        }
+        th,
+        td {
+            height: 40px;
+            padding: 0;
+            line-height: 40px;
         }
     }
 }
