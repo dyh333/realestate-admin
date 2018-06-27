@@ -3,19 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ContractManageComponent } from './contract-manage.component';
 import { FormsModule } from '@angular/forms';
 import { ContractManageRoutesModule } from './contract-manage.routing';
-import {
-  NzTreeModule,
-  NzButtonModule,
-  NzTableModule
-} from 'ng-zorro-antd';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    NzTreeModule,
-    NzButtonModule,
-    NzTableModule,
+    NgZorroAntdModule,
     ContractManageRoutesModule,
   ],
   declarations: [ContractManageComponent]

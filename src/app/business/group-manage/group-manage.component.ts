@@ -110,7 +110,7 @@ export class GroupManageComponent implements OnInit {
    * @param {Object} groupItem
    * @memberof GroupManageComponent
    */
-  addOrUpdateTheGroupItem(groupItem: Object): void {
+  createOrUpdateTheGroupItem(groupItem: Object): void {
     this.isLoading = true;
     // todo: 根据情况，新增或者编辑楼盘数据
     if (this.isCreate) {

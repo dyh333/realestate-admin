@@ -7,6 +7,12 @@ $border-color:rgb(232, 232, 232);
     text-align: center;
 }
 
+.groupTotal {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .na-table {
     ::ng-deep {
         nz-pagination {
@@ -16,7 +22,16 @@ $border-color:rgb(232, 232, 232);
             float: none;
         }
         th {
+            background-color: #f7f7f7;
+            color: #333;
+            font-size: 14px;
             font-weight: bold;
+        }
+        th,
+        td {
+            height: 40px;
+            padding: 0;
+            line-height: 40px;
         }
     }
 }

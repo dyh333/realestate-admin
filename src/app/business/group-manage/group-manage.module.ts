@@ -8,32 +8,14 @@ import {
   CreateUpdateGroupModalComponent,
   DeleteGroupsModalComponent
 } from './components';
-import {
-  NzTableModule,
-  NzButtonModule,
-  NzModalModule,
-  NzFormModule,
-  NzToolTipModule,
-  NzInputModule,
-  NzGridModule,
-  NzInputNumberModule,
-  NzSpinModule
-} from 'ng-zorro-antd';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NzButtonModule,
-    NzTableModule,
-    NzModalModule,
-    NzFormModule,
-    NzToolTipModule,
-    NzInputModule,
-    NzGridModule,
-    NzInputNumberModule,
-    NzSpinModule,
+    NgZorroAntdModule,
     GroupManageRoutesModule,
   ],
   declarations: [
