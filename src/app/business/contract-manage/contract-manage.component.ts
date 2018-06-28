@@ -49,7 +49,7 @@ export class ContractManageComponent implements OnInit {
   allChecked = false;
   indeterminate = false;
   displayData = [];
-  data = [
+  contractList = [
     {
       name: '中南世纪城二期',
       buildingName: '32',
@@ -164,6 +164,8 @@ export class ContractManageComponent implements OnInit {
     }
   ];
 
+  displayContractList = [];
+
   constructor() { }
 
   ngOnInit() {
@@ -194,5 +196,12 @@ export class ContractManageComponent implements OnInit {
     this.refreshStatus();
   }
 
+  editTheContract(): void {
+
+  }
+
+  changePageNo(): void {
+
+  }
 
 }

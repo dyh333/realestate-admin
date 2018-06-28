@@ -1,0 +1,47 @@
+<div class="search-result">
+  共找到
+  <span class="contractTotal">{{contractTotal}}</span>
+  个合同</div>
+<div class="search-content">
+  <nz-table class="na-table" #rowSelectionTable [nzData]="contractList" (nzCurrentPageDataChange)="currentPageDataChange($event)"
+    (nzPageIndexChange)="refreshStatus()" (nzPageSizeChange)="refreshStatus()">
+    <thead>
+      <tr>
+        <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+        <th></th>
+        <th>合同名称</th>
+        <th>幢号</th>
+        <th>室号</th>
+        <th>坐落</th>
+        <th>实测土地面积</th>
+        <th>实测建筑面积</th>
+        <th>实测后总价</th>
+        <th>是否贷款</th>
+        <th>贷款银行</th>
+        <th>代办费</th>
+        <th>是否含车位</th>
+        <th>当前办理进度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataItem of rowSelectionTable.data">
+        <td nzShowCheckbox [(nzChecked)]="dataItem.checked" (nzCheckedChange)="refreshStatus($event)"></td>
+        <td>
+          <a (click)="chooseTheGroup(dataItem)">编辑</a>
+        </td>
+        <td>{{dataItem.name}}</td>
+        <td>{{dataItem.buildingName}}</td>
+        <td>{{dataItem.roomName}}</td>
+        <td>{{dataItem.address}}</td>
+        <td>{{dataItem.landArea}}</td>
+        <td>{{dataItem.roomArea}}</td>
+        <td>{{dataItem.price}}</td>
+        <td>{{dataItem.isLoan}}</td>
+        <td>{{dataItem.loanBank}}</td>
+        <td>{{dataItem.agencyFee}}</td>
+        <td>{{dataItem.isHavePark}}</td>
+        <td>{{dataItem.progress}}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

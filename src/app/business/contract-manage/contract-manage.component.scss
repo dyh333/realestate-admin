@@ -18,34 +18,6 @@ $border-color:rgb(232, 232, 232);
     font-family: MicrosoftYaHei;
 }
 
-.function-module-name,
-.contract-name,
-.function-list {
-    float: left;
-    height: $contract-manage-header-height;
-    padding: 0 30px;
-    line-height: $contract-manage-header-height;
-}
-
-.function-module-name,
-.contract-name {
-    color: #000;
-    font-weight: bold;
-}
-
-.function-module-name {
-    padding: 10px 0;
-}
-
-.module-name {
-    display: block;
-    height: 30px;
-    padding: 0 30px 0 16px;
-    line-height: 30px;
-    border-right: 1px solid #000;
-    font-size: 14px;
-}
-
 button[nz-button] {
     height: 30px;
     margin-right: 8px;
@@ -67,41 +39,4 @@ button[nz-button] {
 .right-content {
     width:calc(100% - #{$left-content-width});
     padding: 0 20px;
-}
-
-.search-result {
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid $border-color;
-    line-height: 50px;
-    text-align: center;
-}
-
-.contractTotal {
-    color: #333;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.na-table {
-    ::ng-deep {
-        nz-pagination {
-            text-align: center;
-        }
-        .ant-pagination {
-            float: none;
-        }
-        th {
-            background-color: #f7f7f7;
-            color: #333;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        th,
-        td {
-            height: 40px;
-            padding: 0;
-            line-height: 40px;
-        }
-    }
 }

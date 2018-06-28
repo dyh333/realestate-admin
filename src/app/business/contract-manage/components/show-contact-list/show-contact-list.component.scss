@@ -1,0 +1,43 @@
+$border-color:rgb(232, 232, 232);
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.search-result {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid $border-color;
+    line-height: 50px;
+    text-align: center;
+}
+
+.contractTotal {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.na-table {
+    ::ng-deep {
+        nz-pagination {
+            text-align: center;
+        }
+        .ant-pagination {
+            float: none;
+        }
+        th {
+            background-color: #f7f7f7;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        th,
+        td {
+            height: 40px;
+            padding: 0;
+            line-height: 40px;
+        }
+    }
+}
