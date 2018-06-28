@@ -1,0 +1,13 @@
+{
+    "refreshCondition": {
+        "url": "http://122.112.247.228:3000/tcrs/v1/group/groups",
+        "params": {
+            "name": "",
+            "pageNo": 1,
+            "pageSize": 10
+        }
+    },
+    "createGroupUrl": "http://122.112.247.228:3000/tcrs/v1/group/group",
+    "updateGroupUrl": "http://122.112.247.228:3000/tcrs/v1/group/group/",
+    "deleteGroupUrl": "http://122.112.247.228:3000/tcrs/v1/group/group/"
+}

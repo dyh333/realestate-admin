@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupManageService } from './services';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-group-manage',
   templateUrl: './group-manage.component.html',
   styleUrls: ['./group-manage.component.scss'],
-  providers: [GroupManageService]
 })
 export class GroupManageComponent implements OnInit {
   // 刷新的条件
   refreshCondition = {
-    url: 'http://122.112.247.228:3000/tcrs/v1/group/groups',
+    url: null,
     params: {
-      name: '',
-      pageNo: 1,
-      pageSize: 10
+      name: null,
+      pageNo: null,
+      pageSize: null
     }
   };
-
-  createGroupUrl: string = 'http://122.112.247.228:3000/tcrs/v1/group/group';
-
-  updateGroupUrl: string = 'http://122.112.247.228:3000/tcrs/v1/group/group/';
-
-  deleteGroupUrl: string = 'http://122.112.247.228:3000/tcrs/v1/group/group/';
+  // 新增的api接口地址
+  createGroupUrl: string;
+  // 更新的api接口地址
+  updateGroupUrl: string;
+  // 删除的api接口地址
+  deleteGroupUrl: string;
   // 楼盘总数量
   groupTotal: number = 0;
   // 楼盘数据
@@ -43,11 +43,19 @@ export class GroupManageComponent implements OnInit {
   isLoading: boolean = false;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private service: GroupManageService,
   ) { }
 
   ngOnInit() {
-    this.refreshGroupList();
+    this.activatedRoute.data.subscribe((data: { config }) => {
+      const config = data.config;
+      this.refreshCondition = config.refreshCondition;
+      this.createGroupUrl = config.createGroupUrl;
+      this.updateGroupUrl = config.updateGroupUrl;
+      this.updateGroupUrl = config.updateGroupUrl;
+      this.refreshGroupList();
+    });
   }
 
   /** 刷新楼盘列表
