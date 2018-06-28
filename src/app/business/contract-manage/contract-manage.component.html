@@ -1,14 +1,9 @@
 <div class="contract-manage-header">
-  <div class="function-module-name">
-    <span class="module-name">合同管理</span>
-  </div>
-  <div class="contract-name">中南世纪城二期</div>
-  <div class="function-list">
+  <app-module-header [moduleName]="'合同管理'">
     <button nz-button nzType="primary">新增</button>
     <button nz-button nzType="primary">导入</button>
     <button nz-button nzType="default">删除</button>
-  </div>
-  <div style="clear: both"></div>
+  </app-module-header>
 </div>
 <div class="left-content">
   <nz-tree [(ngModel)]="nodes" [nzShowLine]="true" [nzDefaultExpandedKeys]="expandKeys"

@@ -10,12 +10,14 @@ import {
 } from './components';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { GroupManageService } from './services';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     NgZorroAntdModule,
     GroupManageRoutesModule,
   ],
