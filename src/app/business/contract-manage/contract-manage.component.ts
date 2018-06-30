@@ -8,8 +8,6 @@ import { NzTreeNode } from 'ng-zorro-antd';
 })
 export class ContractManageComponent implements OnInit {
 
-  contractTotal: number = 120;
-
   expandKeys = ['1001', '1002'];
   nodes = [
     new NzTreeNode({
@@ -46,125 +44,21 @@ export class ContractManageComponent implements OnInit {
     })
   ];
 
-  allChecked = false;
-  indeterminate = false;
-  displayData = [];
-  contractList = [
-    {
-      name: '中南世纪城二期',
-      buildingName: '32',
-      roomName: '120',
-      address: '中南世纪城二期',
-      landArea: '32',
-      roomArea: '120',
-      price: '120',
-      isLoan: '是',
-      loanBank: '建设银行',
-      agencyFee: '500',
-      isHavePark: '否',
-      progress: '资料提交',
-      checked: false,
-      disabled: false
-    },
-    {
-      name: '中南世纪城二期',
-      buildingName: '32',
-      roomName: '120',
-      address: '中南世纪城二期',
-      landArea: '32',
-      roomArea: '120',
-      price: '120',
-      isLoan: '是',
-      loanBank: '建设银行',
-      agencyFee: '500',
-      isHavePark: '否',
-      progress: '资料提交',
-      checked: false,
-      disabled: false
-    },
-    {
-      name: '中南世纪城二期',
-      buildingName: '32',
-      roomName: '120',
-      address: '中南世纪城二期',
-      landArea: '32',
-      roomArea: '120',
-      price: '120',
-      isLoan: '是',
-      loanBank: '建设银行',
-      agencyFee: '500',
-      isHavePark: '否',
-      progress: '资料提交',
-      checked: false,
-      disabled: false
-    },
-    {
-      name: '中南世纪城二期',
-      buildingName: '32',
-      roomName: '120',
-      address: '中南世纪城二期',
-      landArea: '32',
-      roomArea: '120',
-      price: '120',
-      isLoan: '是',
-      loanBank: '建设银行',
-      agencyFee: '500',
-      isHavePark: '否',
-      progress: '资料提交',
-      checked: false,
-      disabled: false
-    },
-    {
-      name: '中南世纪城二期',
-      buildingName: '32',
-      roomName: '120',
-      address: '中南世纪城二期',
-      landArea: '32',
-      roomArea: '120',
-      price: '120',
-      isLoan: '是',
-      loanBank: '建设银行',
-      agencyFee: '500',
-      isHavePark: '否',
-      progress: '资料提交',
-      checked: false,
-      disabled: false
-    },
-    {
-      name: '中南世纪城二期',
-      buildingName: '32',
-      roomName: '120',
-      address: '中南世纪城二期',
-      landArea: '32',
-      roomArea: '120',
-      price: '120',
-      isLoan: '是',
-      loanBank: '建设银行',
-      agencyFee: '500',
-      isHavePark: '否',
-      progress: '资料提交',
-      checked: false,
-      disabled: false
-    },
-    {
-      name: '中南世纪城二期',
-      buildingName: '32',
-      roomName: '120',
-      address: '中南世纪城二期',
-      landArea: '32',
-      roomArea: '120',
-      price: '120',
-      isLoan: '是',
-      loanBank: '建设银行',
-      agencyFee: '500',
-      isHavePark: '否',
-      progress: '资料提交',
-      checked: false,
-      disabled: false
-    }
-  ];
-
   displayContractList = [];
+  // 新增或者编辑的modal是否可用
+  isCreateOrUpdataModalVisible: boolean = false;
+  // 是否新增合同
+  isCreate: boolean = true;
+  // 合同数据
+  contractItem: Object;
+  // 删除功能的modal是否可用
+  isDelModalVisible: boolean = false;
+  // 要删除的数据列表
+  toDelDataList = [];
+  // 是否编辑楼盘
+  isEdited: boolean = false;
+  // 刷新楼盘数据
+  refreshContract: boolean = false;
 
   constructor() { }
 
@@ -175,33 +69,74 @@ export class ContractManageComponent implements OnInit {
     console.log(name, e);
   }
 
-  currentPageDataChange($event: Array<{ name: string; age: number; address: string; checked: boolean; disabled: boolean; }>): void {
-    this.displayData = $event;
-    this.refreshStatus();
+  /** 新增一条合同信息
+   *
+   *
+   * @memberof ContractManageComponent
+   */
+  createAContract(): void {
+    this.contractItem = {
+      Name: null,
+      BuildingName: null,
+      RoomName: null,
+      Address: null,
+      LandArea: null,
+      RoomArea: null,
+      Price: null,
+      IsLoan: null,
+      LoanBank: null,
+      AgencyFee: null,
+      IsHavePark: null,
+      FillinBuyerGuid: null,
+      Progress: null,
+    };
+    this.isCreate = true;
+    this.isEdited = false;
+    this.isCreateOrUpdataModalVisible = true;
   }
 
-  refreshStatus(): void {
-    const allChecked = this.displayData.filter(value => !value.disabled).every(value => value.checked === true);
-    const allUnChecked = this.displayData.filter(value => !value.disabled).every(value => !value.checked);
-    this.allChecked = allChecked;
-    this.indeterminate = (!allChecked) && (!allUnChecked);
+  /** 编辑指定合同信息
+   *
+   *
+   * @param {Object} item
+   * @memberof ContractManageComponent
+   */
+  editTheContract(item:Object): void {
+    this.contractItem = item;
+    this.isCreate = false;
+    this.isEdited = true;
+    this.isCreateOrUpdataModalVisible = true;
   }
 
-  checkAll(value: boolean): void {
-    this.displayData.forEach(data => {
-      if (!data.disabled) {
-        data.checked = value;
-      }
-    });
-    this.refreshStatus();
+  /** 新增或者编辑合同信息
+   *
+   *
+   * @param {Object} contractItem
+   * @memberof ContractManageComponent
+   */
+  createOrUpdateTheContractItem(contractItem: Object): void {
+    this.refreshContract = true;
   }
 
-  editTheContract(): void {
-
+  /** 删除合同信息
+   *
+   *
+   * @memberof ContractManageComponent
+   */
+  deleteContracts(): void {
+    this.toDelDataList = this.displayContractList.filter((item) => { return item.checked === true; });
+    this.isDelModalVisible = true;
+    this.isEdited = false;
   }
 
-  changePageNo(): void {
-
+  /** 是否删除
+   *
+   *
+   * @param {boolean} isDelete
+   * @memberof ContractManageComponent
+   */
+  isToDelete(isDelete: boolean): void {
+    this.refreshContract = true;
   }
 
 }

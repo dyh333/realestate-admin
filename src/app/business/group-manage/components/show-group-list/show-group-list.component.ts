@@ -73,7 +73,7 @@ export class ShowGroupListComponent implements OnInit {
   /** 刷新楼盘列表
    *
    *
-   * @memberof GroupManageComponent
+   * @memberof ShowGroupListComponent
    */
   refreshGroupList(): void {
     this.isLoading = true;

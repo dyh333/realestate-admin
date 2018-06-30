@@ -7,23 +7,6 @@ import { GroupManageService } from './services';
   styleUrls: ['./group-manage.component.scss'],
 })
 export class GroupManageComponent implements OnInit {
-  // 刷新的条件
-  refreshCondition = {
-    url: null,
-    params: {
-      name: null,
-      pageNo: null,
-      pageSize: null
-    }
-  };
-  // 新增的api接口地址
-  createGroupUrl: string;
-  // 更新的api接口地址
-  updateGroupUrl: string;
-  // 楼盘总数量
-  groupTotal: number = 0;
-  // 楼盘数据
-  groupList = [];
   // 楼盘数据
   displayGroupList = [];
   // 新增或者编辑的modal是否可用
@@ -36,8 +19,6 @@ export class GroupManageComponent implements OnInit {
   isDelModalVisible: boolean = false;
   // 要删除的数据列表
   toDelDataList = [];
-  // 是否正在加载
-  isLoading: boolean = false;
   // 是否编辑楼盘
   isEdited: boolean = false;
   // 刷新楼盘数据
@@ -68,10 +49,10 @@ export class GroupManageComponent implements OnInit {
   /** 编辑指定的楼盘
    * 
    *
-   * @param {*} item
+   * @param {Object} item
    * @memberof GroupManageComponent
    */
-  editTheGroup(item): void {
+  editTheGroup(item: Object): void {
     this.groupItem = item;
     this.isCreate = false;
     this.isEdited = true;
