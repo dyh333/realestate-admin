@@ -9,6 +9,7 @@ import { NzTreeNode } from 'ng-zorro-antd';
 export class ContractManageComponent implements OnInit {
 
   expandKeys = ['1001', '1002'];
+  
   nodes = [
     new NzTreeNode({
       title: '小区1',
@@ -101,7 +102,7 @@ export class ContractManageComponent implements OnInit {
    * @param {Object} item
    * @memberof ContractManageComponent
    */
-  editTheContract(item:Object): void {
+  editTheContract(item: Object): void {
     this.contractItem = item;
     this.isCreate = false;
     this.isEdited = true;
@@ -137,6 +138,15 @@ export class ContractManageComponent implements OnInit {
    */
   isToDelete(isDelete: boolean): void {
     this.refreshContract = true;
+  }
+
+  /** 导入合同数据
+   *
+   *
+   * @memberof ContractManageComponent
+   */
+  importContracts(): void {
+
   }
 
 }

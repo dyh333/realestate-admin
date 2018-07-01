@@ -5,7 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { ContractManageRoutesModule } from './contract-manage.routing';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { SharedModule } from '../../shared/shared.module';
-import { ShowContactListComponent } from './components';
+import {
+  ShowContactListComponent,
+  DeleteContractModalComponent
+} from './components';
 import { ContractManageService } from './servicves';
 
 @NgModule({
@@ -19,7 +22,8 @@ import { ContractManageService } from './servicves';
   declarations: [
     ContractManageComponent,
     ShowContactListComponent,
+    DeleteContractModalComponent,
   ],
-  providers:[ContractManageService]
+  providers: [ContractManageService]
 })
 export class ContractManageModule { }

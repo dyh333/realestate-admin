@@ -1,16 +1,20 @@
 <div class="contract-manage-header">
   <app-module-header [moduleName]="'合同管理'">
     <button nz-button nzType="primary">新增</button>
-    <button nz-button nzType="primary" (click)="deleteContracts()">导入</button>
-    <button nz-button nzType="default">删除</button>
+    <button nz-button nzType="primary" (click)="importContracts()">导入</button>
+    <button nz-button nzType="default" (click)="deleteContracts()">删除</button>
   </app-module-header>
 </div>
 <div class="left-content">
-  <nz-tree [(ngModel)]="nodes" [nzShowLine]="true" [nzDefaultExpandedKeys]="expandKeys" (nzExpandChange)="mouseAction('expand',$event)"
-    (nzDblClick)="mouseAction('dblclick',$event)" (nzContextMenu)="mouseAction('contextmenu', $event)" (nzClick)="mouseAction('click',$event)">
+  <nz-tree [(ngModel)]="nodes" [nzShowLine]="true" [nzDefaultExpandedKeys]="expandKeys"
+    (nzExpandChange)="mouseAction('expand',$event)" (nzDblClick)="mouseAction('dblclick',$event)"
+    (nzContextMenu)="mouseAction('contextmenu', $event)" (nzClick)="mouseAction('click',$event)">
   </nz-tree>
 </div>
 <div class="right-content">
-  <app-show-contact-list [isEdited]="isEdited" [(refresh)]="refreshContract" (groupListChange)="displayContractList=$event"
-    (choosedGroup)="editTheContract($event)"></app-show-contact-list>
+  <app-show-contact-list [isEdited]="isEdited" [(refresh)]="refreshContract" (contractListChange)="displayContractList=$event"
+    (choosedContract)="editTheContract($event)"></app-show-contact-list>
 </div>
+<!-- 删除功能的确认框 -->
+<app-delete-contract-modal [(isDelModalVisible)]="isDelModalVisible" [toDelDataList]="toDelDataList"
+  (isToDelete)="isToDelete($event)"></app-delete-contract-modal>
