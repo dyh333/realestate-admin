@@ -4,13 +4,26 @@
   </div>
   <div class="left-content">
     <ul class="nz-menu" nz-menu [nzMode]="'inline'" nzTheme='light' [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item (click)="clickMenuItem('./realestateAdmin/groupManage')">
+      <li nz-menu-item (click)="isCollapsed=!isCollapsed" class="not-select">
+        <span title>
+          <i class="anticon {{isCollapsed?'anticon-menu-unfold':'anticon-menu-fold'}} "></i>
+          <span></span>
+        </span>
+      </li>
+      <li nz-menu-item class="not-select">
+        <span title>
+          <i class="anticon anticon-home"></i>
+          <span>首页</span>
+        </span>
+      </li>
+      <li nz-menu-item (click)="clickMenuItem('./layout/groupManage','groupManage')" [class.activated]="'groupManage'===menuActivatedSign">
         <span title>
           <i class="anticon anticon-table"></i>
           <span>楼盘管理</span>
         </span>
       </li>
-      <li nz-menu-item (click)="clickMenuItem('./realestateAdmin/contractManage')">
+      <li nz-menu-item (click)="clickMenuItem('./layout/contractManage','contractManage')"
+        [class.activated]="'contractManage'===menuActivatedSign">
         <span title>
           <i class="anticon anticon-form"></i>
           <span>合同管理</span>

@@ -31,6 +31,10 @@ $border-color:rgb(232, 232, 232);
     width: $left-content-width-notCollapsed;
 }
 
+.activated {
+    background-color: #e6f7ff;
+}
+
 .right-content {
     width: calc(100% - #{$left-content-width-notCollapsed});
 }
@@ -53,12 +57,16 @@ $border-color:rgb(232, 232, 232);
             border-bottom: 1px solid $border-color;
         }
         .ant-menu-item {
-            width: $nz-menu-item-width;
             height: $nz-menu-item-height;
             margin: 0;
-            padding: 0 !important;
+            padding: 0 17px !important;
             line-height: $nz-menu-item-height;
-            text-align: center;
+            &:after {
+                border-right: 0;
+            }
+        }
+        .not-select.ant-menu-item-selected {
+            background-color: #fff;
         }
     }
 }

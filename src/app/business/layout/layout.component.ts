@@ -10,6 +10,8 @@ export class LayoutComponent implements OnInit {
   // 左侧菜单是否折叠
   isCollapsed: boolean = true;
 
+  menuActivatedSign: string = 'groupManage';
+
   constructor(
     private router: Router
   ) { }
@@ -23,7 +25,8 @@ export class LayoutComponent implements OnInit {
    * @param {string} menuUrl 菜单对应的路径
    * @memberof LayoutComponent
    */
-  clickMenuItem(menuUrl: string): void {
+  clickMenuItem(menuUrl: string, sign: string): void {
     this.router.navigate([menuUrl]);
+    this.menuActivatedSign = sign;
   }
 }

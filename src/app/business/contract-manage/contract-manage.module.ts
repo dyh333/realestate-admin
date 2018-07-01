@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContractManageComponent } from './contract-manage.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContractManageRoutesModule } from './contract-manage.routing';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { SharedModule } from '../../shared/shared.module';
@@ -16,6 +16,7 @@ import { ContractManageService } from './servicves';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     NgZorroAntdModule,
     ContractManageRoutesModule,
