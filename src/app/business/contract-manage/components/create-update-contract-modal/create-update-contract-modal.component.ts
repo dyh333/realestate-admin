@@ -24,14 +24,14 @@ export class CreateUpdateContractModalComponent implements OnInit {
 
   @Output() isCreateChange = new EventEmitter<boolean>();
   // 楼盘数据
-  _groupItem: Object;
+  _createItem: Object;
 
-  @Input() set groupItem(groupItem: Object) {
-    this._groupItem = groupItem;
-    this.initForm(groupItem);
+  @Input() set createItem(createItem: Object) {
+    this._createItem = createItem;
+    this.initForm(createItem);
   }
 
-  @Output() groupItemChange = new EventEmitter<Object>();
+  @Output() createItemChange = new EventEmitter<Object>();
   // 新增或者编辑的modal的标题
   theModalTitle: string;
   // 检验表单
@@ -65,11 +65,11 @@ export class CreateUpdateContractModalComponent implements OnInit {
     if (this.validateForm.valid) {
       // tode: 构造要新增或者更新的数据项
       const values = this.validateForm.value;
-      this._groupItem['Name'] = values['Name'];
-      this._groupItem['BuildingCount'] = values['BuildingCount'];
-      this._groupItem['RoomCount'] = values['RoomCount'];
-      this._groupItem['CourtName'] = values['CourtName'];
-      this.createOrUpdateTheGroupItem(this._groupItem);
+      this._createItem['Name'] = values['Name'];
+      this._createItem['BuildingCount'] = values['BuildingCount'];
+      this._createItem['RoomCount'] = values['RoomCount'];
+      this._createItem['CourtName'] = values['CourtName'];
+      this.createOrUpdateTheGroupItem(this._createItem);
     }
   }
 
@@ -104,7 +104,7 @@ export class CreateUpdateContractModalComponent implements OnInit {
   initForm(groupItem: Object): void {
     if (groupItem) {
       if (this.isCreate) {
-        this.theModalTitle = '新增楼盘';
+        this.theModalTitle = '新增合同';
       } else {
         this.theModalTitle = groupItem['Name'];
       }
@@ -128,13 +128,13 @@ export class CreateUpdateContractModalComponent implements OnInit {
     if (this.isCreate) {
       this.service.createAContract(groupItem, this.createGroupUrl).subscribe(callback => {
         console.log(callback);
-        this.groupItemChange.emit(this._groupItem);
+        this.createItemChange.emit(this._createItem);
         this.closeTheModal();
       });
     } else {
       this.service.updateTheContract(groupItem, this.updateGroupUrl).subscribe(callback => {
         console.log(callback);
-        this.groupItemChange.emit(this._groupItem);
+        this.createItemChange.emit(this._createItem);
         this.closeTheModal();
       });
     }

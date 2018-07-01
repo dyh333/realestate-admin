@@ -1,6 +1,6 @@
 <div class="contract-manage-header">
   <app-module-header [moduleName]="'合同管理'">
-    <button nz-button nzType="primary">新增</button>
+    <button nz-button nzType="primary" (click)="createAContract()">新增</button>
     <button nz-button nzType="primary" (click)="importContracts()">导入</button>
     <button nz-button nzType="default" (click)="deleteContracts()">删除</button>
   </app-module-header>
@@ -15,6 +15,8 @@
   <app-show-contact-list [isEdited]="isEdited" [(refresh)]="refreshContract" (contractListChange)="displayContractList=$event"
     (choosedContract)="editTheContract($event)"></app-show-contact-list>
 </div>
+<app-create-update-contract-modal [(isCreateOrUpdataModalVisible)]="isCreateOrUpdataModalVisible"
+  [createItem]="contractItem" [isCreate]="isCreate" (cre)="createOrUpdateTheContractItem($event)"></app-create-update-contract-modal>
 <!-- 删除功能的确认框 -->
 <app-delete-contract-modal [(isDelModalVisible)]="isDelModalVisible" [toDelDataList]="toDelDataList"
   (isToDelete)="isToDelete($event)"></app-delete-contract-modal>
