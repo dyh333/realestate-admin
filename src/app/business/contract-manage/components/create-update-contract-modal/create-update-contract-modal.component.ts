@@ -2,19 +2,19 @@ import {
   Component,
   OnInit,
   Input,
-  EventEmitter,
-  Output
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { GroupManageService } from '../../services';
+import { ContractManageService } from '../../servicves';
 
 @Component({
-  selector: 'app-create-update-group-modal',
-  templateUrl: './create-update-group-modal.component.html',
-  styleUrls: ['./create-update-group-modal.component.scss']
+  selector: 'app-create-update-contract-modal',
+  templateUrl: './create-update-contract-modal.component.html',
+  styleUrls: ['./create-update-contract-modal.component.scss']
 })
-export class CreateUpdateGroupModalComponent implements OnInit {
+export class CreateUpdateContractModalComponent implements OnInit {
   // 新增或者编辑的modal是否可用
   @Input() isCreateOrUpdataModalVisible: boolean = false;
 
@@ -44,7 +44,7 @@ export class CreateUpdateGroupModalComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
-    private service: GroupManageService,
+    private service: ContractManageService,
   ) { }
 
   ngOnInit() {
@@ -126,15 +126,13 @@ export class CreateUpdateGroupModalComponent implements OnInit {
   createOrUpdateTheGroupItem(groupItem: Object): void {
     // todo: 根据情况，新增或者编辑楼盘数据
     if (this.isCreate) {
-      this.service.createAGroup(groupItem, this.createGroupUrl).subscribe(callback => {
+      this.service.createAContract(groupItem, this.createGroupUrl).subscribe(callback => {
         console.log(callback);
-      });
-      setTimeout(() => {
         this.groupItemChange.emit(this._groupItem);
         this.closeTheModal();
-      }, 1000);
+      });
     } else {
-      this.service.updateTheGroup(groupItem, this.updateGroupUrl).subscribe(callback => {
+      this.service.updateTheContract(groupItem, this.updateGroupUrl).subscribe(callback => {
         console.log(callback);
         this.groupItemChange.emit(this._groupItem);
         this.closeTheModal();

@@ -9,6 +9,11 @@ export class GroupManageService {
         private http: HttpClient,
     ) { }
 
+    resolve() {
+        const configUrl = './config/group-manage.config.json';
+        return this.http.get(configUrl);
+    }
+
     /** 获取楼盘列表
      *
      *
@@ -45,7 +50,7 @@ export class GroupManageService {
      * @returns {Observable<Object>}
      * @memberof GroupManageService
      */
-    updateTheGroup(groupItem: Object, updateGroupUrl: string) :Observable<Object>{
+    updateTheGroup(groupItem: Object, updateGroupUrl: string): Observable<Object> {
         const updateUrl = `${updateGroupUrl}${groupItem['Guid']}`;
         Reflect.deleteProperty(groupItem, 'Guid');
         Reflect.deleteProperty(groupItem, 'checked');
@@ -63,7 +68,7 @@ export class GroupManageService {
      * @returns {Observable<any>}
      * @memberof GroupManageService
      */
-    deleteGroups(groups: Object[], deleteGroupsUrl: string) :Observable<any>{
+    deleteGroups(groups: Object[], deleteGroupsUrl: string): Observable<any> {
         let deleteUrl = deleteGroupsUrl,
             count = 0;;
         for (const item of groups) {
@@ -73,7 +78,7 @@ export class GroupManageService {
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' })
         };
-        return this.http.delete(deleteUrl,httpOptions);
+        return this.http.delete(deleteUrl, httpOptions);
     }
 
 }

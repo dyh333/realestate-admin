@@ -1,11 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
+import {
+  HeaderComponent,
+  ModuleHeaderComponent
+} from './components';
+
+const COMPONENTS = [
+  HeaderComponent,
+  ModuleHeaderComponent,
+];
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    NgZorroAntdModule,
   ],
-  declarations: [HeaderComponent]
+  declarations: [...COMPONENTS],
+  exports: [
+    ...COMPONENTS
+  ]
 })
 export class SharedModule { }

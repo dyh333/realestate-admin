@@ -9,12 +9,15 @@ import {
   DeleteGroupsModalComponent
 } from './components';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { GroupManageService } from './services';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     NgZorroAntdModule,
     GroupManageRoutesModule,
   ],
@@ -23,6 +26,9 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
     ShowGroupListComponent,
     CreateUpdateGroupModalComponent,
     DeleteGroupsModalComponent,
+  ],
+  providers: [
+    GroupManageService,
   ],
   entryComponents: []
 })
