@@ -6,8 +6,8 @@ export const routes: Routes = [
     loadChildren: './../business/login/login.module#LoginModule'
   },
   {
-    path: 'realestateAdmin',
+    path: 'layout',
     loadChildren: './../business/layout/layout.module#LayoutModule'
   },
-  { path: '', redirectTo: 'realestateAdmin', pathMatch: 'full' },
+  { path: '', redirectTo: 'layout', pathMatch: 'full' },
 ];

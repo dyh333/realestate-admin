@@ -7,6 +7,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { SharedModule } from '../../shared/shared.module';
 import {
   ShowContactListComponent,
+  CreateUpdateContractModalComponent,
   DeleteContractModalComponent
 } from './components';
 import { ContractManageService } from './servicves';
@@ -22,6 +23,7 @@ import { ContractManageService } from './servicves';
   declarations: [
     ContractManageComponent,
     ShowContactListComponent,
+    CreateUpdateContractModalComponent,
     DeleteContractModalComponent,
   ],
   providers: [ContractManageService]
