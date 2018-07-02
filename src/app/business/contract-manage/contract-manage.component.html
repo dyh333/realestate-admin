@@ -16,7 +16,7 @@
     (choosedContract)="editTheContract($event)"></app-show-contact-list>
 </div>
 <app-create-update-contract-modal [(isCreateOrUpdataModalVisible)]="isCreateOrUpdataModalVisible"
-  [createItem]="contractItem" [isCreate]="isCreate" (cre)="createOrUpdateTheContractItem($event)"></app-create-update-contract-modal>
+  [contractItem]="contractItem" [isCreate]="isCreate" (cre)="createOrUpdateTheContractItem($event)"></app-create-update-contract-modal>
 <!-- 删除功能的确认框 -->
 <app-delete-contract-modal [(isDelModalVisible)]="isDelModalVisible" [toDelDataList]="toDelDataList"
   (isToDelete)="isToDelete($event)"></app-delete-contract-modal>

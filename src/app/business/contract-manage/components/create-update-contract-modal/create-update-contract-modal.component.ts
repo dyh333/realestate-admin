@@ -23,15 +23,21 @@ export class CreateUpdateContractModalComponent implements OnInit {
   @Input() isCreate: boolean = true;
 
   @Output() isCreateChange = new EventEmitter<boolean>();
-  // 楼盘数据
-  _createItem: Object;
 
-  @Input() set createItem(createItem: Object) {
-    this._createItem = createItem;
-    this.initForm(createItem);
+  _contractItem: Object;
+
+  @Input() set contractItem(contractItem: Object) {
+    this._contractItem = contractItem;
+    if (contractItem) {
+      this.theModalTitle = '买卖合同';
+    }
   }
 
-  @Output() createItemChange = new EventEmitter<Object>();
+  get contractItem(): Object {
+    return this._contractItem;
+  }
+
+  @Output() contractItemChange = new EventEmitter<Object>();
   // 新增或者编辑的modal的标题
   theModalTitle: string;
   // 检验表单
@@ -55,24 +61,6 @@ export class CreateUpdateContractModalComponent implements OnInit {
     });
   }
 
-  /** 提交modal中的数据
-   *
-   *
-   * @memberof CreateUpdateGroupModalComponent
-   */
-  submitTheModal(): void {
-    this.checkForm();
-    if (this.validateForm.valid) {
-      // tode: 构造要新增或者更新的数据项
-      const values = this.validateForm.value;
-      this._createItem['Name'] = values['Name'];
-      this._createItem['BuildingCount'] = values['BuildingCount'];
-      this._createItem['RoomCount'] = values['RoomCount'];
-      this._createItem['CourtName'] = values['CourtName'];
-      this.createOrUpdateTheGroupItem(this._createItem);
-    }
-  }
-
   /** 关闭modal
    *
    *
@@ -81,40 +69,6 @@ export class CreateUpdateContractModalComponent implements OnInit {
   closeTheModal(): void {
     this.isCreateOrUpdataModalVisible = false;
     this.isCreateOrUpdataModalVisibleChange.emit(false);
-  }
-
-  /** 检查表单数据
-   *
-   *
-   * @memberof CreateUpdateGroupModalComponent
-   */
-  checkForm(): void {
-    for (const i in this.validateForm.controls) {
-      this.validateForm.controls[i].markAsDirty();
-      this.validateForm.controls[i].updateValueAndValidity();
-    }
-  }
-
-  /** 初始化表单
-   *
-   *
-   * @param {Object} groupItem
-   * @memberof CreateUpdateGroupModalComponent
-   */
-  initForm(groupItem: Object): void {
-    if (groupItem) {
-      if (this.isCreate) {
-        this.theModalTitle = '新增合同';
-      } else {
-        this.theModalTitle = groupItem['Name'];
-      }
-      this.validateForm = this.fb.group({
-        Name: [groupItem['Name'], [Validators.required]],
-        BuildingCount: [groupItem['BuildingCount'], [Validators.required]],
-        RoomCount: [groupItem['RoomCount'], [Validators.required,]],
-        CourtName: [groupItem['CourtName'], [Validators.required]],
-      });
-    }
   }
 
   /** 新增或者编辑楼盘
@@ -128,13 +82,13 @@ export class CreateUpdateContractModalComponent implements OnInit {
     if (this.isCreate) {
       this.service.createAContract(groupItem, this.createGroupUrl).subscribe(callback => {
         console.log(callback);
-        this.createItemChange.emit(this._createItem);
+        // this.createItemChange.emit(this._createItem);
         this.closeTheModal();
       });
     } else {
       this.service.updateTheContract(groupItem, this.updateGroupUrl).subscribe(callback => {
         console.log(callback);
-        this.createItemChange.emit(this._createItem);
+        // this.createItemChange.emit(this._createItem);
         this.closeTheModal();
       });
     }

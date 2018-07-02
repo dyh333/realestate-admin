@@ -1,11 +1,13 @@
-::ng-deep {
-    .create-update-contract-modal {
+.create-update-contract-modal {
+    ::ng-deep {
+        /* nz-modal */
         .ant-modal-body {
             padding: 0;
         }
         .ant-modal-footer {
             padding: 0;
         }
+        /* nz-tabs */
         .ant-tabs-bar {
             margin-bottom: 0;
             border-bottom-color: #e0e0e0;
@@ -24,7 +26,7 @@
             padding-left: 0;
             padding-right: 0;
         }
-        .ant-tabs-tabpane{
+        .ant-tabs-tabpane {
             padding: 20px 30px;
         }
     }

@@ -1,8 +1,8 @@
 {
   "refreshCondition": {
-    "url": "http://122.112.247.228:3000/",
+    "url": "http://122.112.247.228:3000/tcrs/v1/contract/contracts/",
     "params": {
-      "name": "",
+      "buildingname": "",
       "pageNo": 1,
       "pageSize": 10
     }
@@ -15,5 +15,6 @@
   "createBuyerUrl": "http://122.112.247.228:3000/tcrs/v1/buyer/buyer",
   "updateBuyerUrl": "http://122.112.247.228:3000/tcrs/v1/buyer/buyer",
   "deleteBuyerUrl": "http://122.112.247.228:3000/tcrs/v1/buyer/buyer",
-  "getDectionary":"http://122.112.247.228:3000/tcrs/v1/dd/paper_material_status/details"
+  "getDectionary":"http://122.112.247.228:3000/tcrs/v1/dd/{name}/details",
+  "uploadImg":"http://122.112.247.228:3000/tcrs/v1/upload/upload/img"
 }

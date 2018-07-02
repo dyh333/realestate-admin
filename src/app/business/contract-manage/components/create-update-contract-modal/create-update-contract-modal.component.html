@@ -8,7 +8,7 @@
   <ng-template #modalContent>
     <nz-tabset>
       <nz-tab nzTitle="合同信息">
-        Content of Tab Pane 1
+        <app-create-update-contract [(isCreate)]="isCreate" [contractItem]="contractItem"></app-create-update-contract>
       </nz-tab>
       <nz-tab nzTitle="买受人信息">
         Content of Tab Pane 2
@@ -21,47 +21,8 @@
       </nz-tab>
     </nz-tabset>
 
-    <!-- <form nz-form [formGroup]="validateForm" (ngSubmit)="checkForm()">
-      <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="Name">楼盘名称</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input formControlName="Name" id="Name">
-          <nz-form-explain *ngIf="validateForm.get('Name').dirty && validateForm.get('Name').errors">请输入楼盘名称!</nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="BuildingCount" nzRequired>建筑物数量</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24">
-          <nz-input-number class="nz-input-number" formControlName="BuildingCount" id="BuildingCount"></nz-input-number>
-          <nz-form-explain *ngIf="validateForm.get('BuildingCount').dirty && validateForm.get('BuildingCount').errors">请输入建筑物数量!</nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="RoomCount" nzRequired>户室数量</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24">
-          <nz-input-number class="nz-input-number" formControlName="RoomCount" id="RoomCount"></nz-input-number>
-          <nz-form-explain *ngIf="validateForm.get('RoomCount').dirty && validateForm.get('RoomCount').errors">
-            请输入户室数量
-          </nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="CourtName" nzRequired>小区名称</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="CourtName" formControlName="CourtName">
-          <nz-form-explain *ngIf="validateForm.get('CourtName').dirty && validateForm.get('CourtName').errors">请输入小区名称</nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-    </form> -->
   </ng-template>
 
   <ng-template #modalFooter >
-    <!-- <ng-container *ngIf="!isCreate">
-      <button nz-button nzType="primary" (click)="submitTheModal()">保存</button>
-      <button nz-button nzType="default" (click)="closeTheModal()">取消</button>
-    </ng-container>
-    <ng-container *ngIf="isCreate">
-      <button nz-button nzType="primary" (click)="submitTheModal()">新增</button>
-    </ng-container> -->
   </ng-template>
 </nz-modal>

@@ -84,12 +84,15 @@ export class ContractManageComponent implements OnInit {
       LandArea: null,
       RoomArea: null,
       Price: null,
-      IsLoan: null,
+      IsLoan: 1,
       LoanBank: null,
       AgencyFee: null,
-      IsHavePark: null,
-      FillinBuyerGuid: null,
-      Progress: null,
+      IsHavePark: 1,
+      Progress: 1,
+      PaperState: 1,
+      PaperStateRemark: null,
+      IsEmergent: 0,
+      EmergentFee: null,
     };
     this.isCreate = true;
     this.isEdited = false;
