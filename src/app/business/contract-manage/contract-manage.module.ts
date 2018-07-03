@@ -9,7 +9,8 @@ import {
   ShowContactListComponent,
   CreateUpdateContractModalComponent,
   CreateUpdateContractComponent,
-  DeleteContractModalComponent
+  DeleteContractModalComponent,
+  RealestateRegistrationComponent
 } from './components';
 import { ContractManageService } from './servicves';
 
@@ -28,6 +29,7 @@ import { ContractManageService } from './servicves';
     CreateUpdateContractModalComponent,
     CreateUpdateContractComponent,
     DeleteContractModalComponent,
+    RealestateRegistrationComponent,
   ],
   providers: [ContractManageService]
 })

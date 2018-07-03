@@ -1,10 +1,10 @@
-<nz-modal *ngIf="isCreateOrUpdataModalVisible" class="create-update-contract-modal" nzWrapClassName="vertical-center-modal"
-  [(nzVisible)]="isCreateOrUpdataModalVisible" [nzTitle]="modalTitle" [nzContent]="modalContent"
-  [nzFooter]="modalFooter" nzWidth="50%" (nzOnCancel)="closeTheModal()">
+<nz-modal *ngIf="isCreateOrUpdataModalVisible" class="create-update-contract-modal"
+  nzWrapClassName="vertical-center-modal" [(nzVisible)]="isCreateOrUpdataModalVisible"
+  [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" nzWidth="50%"
+  (nzOnCancel)="closeTheModal()">
   <ng-template #modalTitle>
     {{theModalTitle}}
   </ng-template>
-
   <ng-template #modalContent>
     <nz-tabset>
       <nz-tab nzTitle="合同信息">
@@ -14,7 +14,7 @@
         Content of Tab Pane 2
       </nz-tab>
       <nz-tab nzTitle="不动产登记信息">
-        Content of Tab Pane 3
+        <app-realestate-registration></app-realestate-registration>
       </nz-tab>
       <nz-tab nzTitle="消息通知">
         Content of Tab Pane 3
@@ -23,6 +23,6 @@
 
   </ng-template>
 
-  <ng-template #modalFooter >
+  <ng-template #modalFooter>
   </ng-template>
 </nz-modal>

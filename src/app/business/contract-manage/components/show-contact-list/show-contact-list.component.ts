@@ -14,6 +14,12 @@ import { ContractManageService } from '../../servicves';
   styleUrls: ['./show-contact-list.component.scss']
 })
 export class ShowContactListComponent implements OnInit {
+
+  @Input() groupGuid: string;
+
+  @Input() buildingName: string;
+
+  @Input() roomName: string;
   // 是否进行了编辑功能
   @Input() set isEdited(isEdited: boolean) {
     // 如果不是信息编辑，即新增或者删除时，
@@ -49,11 +55,12 @@ export class ShowContactListComponent implements OnInit {
   refreshCondition = {
     url: null,
     params: {
-      name: null,
+      buildingname: null,
       pageNo: null,
       pageSize: null
     }
   };
+  getContractDetailUrl: string;
   // 是否正在加载
   isLoading: boolean = false;
 
@@ -66,6 +73,7 @@ export class ShowContactListComponent implements OnInit {
     this.activatedRoute.data.subscribe((data: { config }) => {
       const config = data.config;
       this.refreshCondition = config.refreshCondition;
+      this.getContractDetailUrl = config.getContractDetailUrl;
       this.refreshContractList();
     });
   }
@@ -77,324 +85,23 @@ export class ShowContactListComponent implements OnInit {
    */
   refreshContractList(): void {
     this.isLoading = true;
-    // this.service.getContracts(this.refreshCondition).subscribe((callback: any) => {
-    //   console.log(callback);
-    //   // let { groups, meta: { counts } } = callback;
-    //   // this.contractTotal = counts;
-    //   this.contractList = [
-    //     {
-    //       "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-    //       "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-    //       "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-    //       "BuildingName": "9",
-    //       "RoomName": "502",
-    //       "Address": "太仓市郑和路157号",
-    //       "LandArea": "10.00",
-    //       "RoomArea": "109.52",
-    //       "Price": "1500000.00",
-    //       "IsLoan": 1,
-    //       "LoanBank": "中国银行",
-    //       "AgencyFee": 500,
-    //       "IsHavePark": 1,
-    //       "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-    //       "Progress": "1",
-    //       "PaperState": "1",
-    //       "PaperStateRemark": "测试",
-    //       "IsEmergent": 0,
-    //       "EmergentFee": 0,
-    //       "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-    //     },
-    //     {
-    //       "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-    //       "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-    //       "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-    //       "BuildingName": "9",
-    //       "RoomName": "502",
-    //       "Address": "太仓市郑和路157号",
-    //       "LandArea": "10.00",
-    //       "RoomArea": "109.52",
-    //       "Price": "1500000.00",
-    //       "IsLoan": 1,
-    //       "LoanBank": "中国银行",
-    //       "AgencyFee": 500,
-    //       "IsHavePark": 1,
-    //       "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-    //       "Progress": "1",
-    //       "PaperState": "1",
-    //       "PaperStateRemark": "测试",
-    //       "IsEmergent": 0,
-    //       "EmergentFee": 0,
-    //       "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-    //     },
-    //     {
-    //       "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-    //       "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-    //       "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-    //       "BuildingName": "9",
-    //       "RoomName": "502",
-    //       "Address": "太仓市郑和路157号",
-    //       "LandArea": "10.00",
-    //       "RoomArea": "109.52",
-    //       "Price": "1500000.00",
-    //       "IsLoan": 1,
-    //       "LoanBank": "中国银行",
-    //       "AgencyFee": 500,
-    //       "IsHavePark": 1,
-    //       "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-    //       "Progress": "1",
-    //       "PaperState": "1",
-    //       "PaperStateRemark": "测试",
-    //       "IsEmergent": 0,
-    //       "EmergentFee": 0,
-    //       "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-    //     },
-    //     {
-    //       "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-    //       "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-    //       "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-    //       "BuildingName": "9",
-    //       "RoomName": "502",
-    //       "Address": "太仓市郑和路157号",
-    //       "LandArea": "10.00",
-    //       "RoomArea": "109.52",
-    //       "Price": "1500000.00",
-    //       "IsLoan": 1,
-    //       "LoanBank": "中国银行",
-    //       "AgencyFee": 500,
-    //       "IsHavePark": 1,
-    //       "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-    //       "Progress": "1",
-    //       "PaperState": "1",
-    //       "PaperStateRemark": "测试",
-    //       "IsEmergent": 0,
-    //       "EmergentFee": 0,
-    //       "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-    //     },
-    //     {
-    //       "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-    //       "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-    //       "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-    //       "BuildingName": "9",
-    //       "RoomName": "502",
-    //       "Address": "太仓市郑和路157号",
-    //       "LandArea": "10.00",
-    //       "RoomArea": "109.52",
-    //       "Price": "1500000.00",
-    //       "IsLoan": 1,
-    //       "LoanBank": "中国银行",
-    //       "AgencyFee": 500,
-    //       "IsHavePark": 1,
-    //       "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-    //       "Progress": "1",
-    //       "PaperState": "1",
-    //       "PaperStateRemark": "测试",
-    //       "IsEmergent": 0,
-    //       "EmergentFee": 0,
-    //       "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-    //     },
-    //     {
-    //       "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-    //       "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-    //       "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-    //       "BuildingName": "9",
-    //       "RoomName": "502",
-    //       "Address": "太仓市郑和路157号",
-    //       "LandArea": "10.00",
-    //       "RoomArea": "109.52",
-    //       "Price": "1500000.00",
-    //       "IsLoan": 1,
-    //       "LoanBank": "中国银行",
-    //       "AgencyFee": 500,
-    //       "IsHavePark": 1,
-    //       "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-    //       "Progress": "1",
-    //       "PaperState": "1",
-    //       "PaperStateRemark": "测试",
-    //       "IsEmergent": 0,
-    //       "EmergentFee": 0,
-    //       "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-    //     },
-    //     {
-    //       "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-    //       "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-    //       "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-    //       "BuildingName": "9",
-    //       "RoomName": "502",
-    //       "Address": "太仓市郑和路157号",
-    //       "LandArea": "10.00",
-    //       "RoomArea": "109.52",
-    //       "Price": "1500000.00",
-    //       "IsLoan": 1,
-    //       "LoanBank": "中国银行",
-    //       "AgencyFee": 500,
-    //       "IsHavePark": 1,
-    //       "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-    //       "Progress": "1",
-    //       "PaperState": "1",
-    //       "PaperStateRemark": "测试",
-    //       "IsEmergent": 0,
-    //       "EmergentFee": 0,
-    //       "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-    //     }
-    //   ];
-    //   this.isLoading = false;
-    // });
-    this.contractList = [
-      {
-        "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-        "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-        "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-        "BuildingName": "9",
-        "RoomName": "502",
-        "Address": "太仓市郑和路157号",
-        "LandArea": "10.00",
-        "RoomArea": "109.52",
-        "Price": "1500000.00",
-        "IsLoan": 1,
-        "LoanBank": "中国银行",
-        "AgencyFee": 500,
-        "IsHavePark": 1,
-        "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-        "Progress": "1",
-        "PaperState": "1",
-        "PaperStateRemark": "测试",
-        "IsEmergent": 0,
-        "EmergentFee": 0,
-        "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-      },
-      {
-        "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-        "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-        "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-        "BuildingName": "9",
-        "RoomName": "502",
-        "Address": "太仓市郑和路157号",
-        "LandArea": "10.00",
-        "RoomArea": "109.52",
-        "Price": "1500000.00",
-        "IsLoan": 1,
-        "LoanBank": "中国银行",
-        "AgencyFee": 500,
-        "IsHavePark": 1,
-        "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-        "Progress": "1",
-        "PaperState": "1",
-        "PaperStateRemark": "测试",
-        "IsEmergent": 0,
-        "EmergentFee": 0,
-        "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-      },
-      {
-        "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-        "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-        "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-        "BuildingName": "9",
-        "RoomName": "502",
-        "Address": "太仓市郑和路157号",
-        "LandArea": "10.00",
-        "RoomArea": "109.52",
-        "Price": "1500000.00",
-        "IsLoan": 1,
-        "LoanBank": "中国银行",
-        "AgencyFee": 500,
-        "IsHavePark": 1,
-        "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-        "Progress": "1",
-        "PaperState": "1",
-        "PaperStateRemark": "测试",
-        "IsEmergent": 0,
-        "EmergentFee": 0,
-        "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-      },
-      {
-        "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-        "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-        "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-        "BuildingName": "9",
-        "RoomName": "502",
-        "Address": "太仓市郑和路157号",
-        "LandArea": "10.00",
-        "RoomArea": "109.52",
-        "Price": "1500000.00",
-        "IsLoan": 1,
-        "LoanBank": "中国银行",
-        "AgencyFee": 500,
-        "IsHavePark": 1,
-        "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-        "Progress": "1",
-        "PaperState": "1",
-        "PaperStateRemark": "测试",
-        "IsEmergent": 0,
-        "EmergentFee": 0,
-        "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-      },
-      {
-        "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-        "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-        "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-        "BuildingName": "9",
-        "RoomName": "502",
-        "Address": "太仓市郑和路157号",
-        "LandArea": "10.00",
-        "RoomArea": "109.52",
-        "Price": "1500000.00",
-        "IsLoan": 1,
-        "LoanBank": "中国银行",
-        "AgencyFee": 500,
-        "IsHavePark": 1,
-        "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-        "Progress": "1",
-        "PaperState": "1",
-        "PaperStateRemark": "测试",
-        "IsEmergent": 0,
-        "EmergentFee": 0,
-        "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-      },
-      {
-        "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-        "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-        "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-        "BuildingName": "9",
-        "RoomName": "502",
-        "Address": "太仓市郑和路157号",
-        "LandArea": "10.00",
-        "RoomArea": "109.52",
-        "Price": "1500000.00",
-        "IsLoan": 1,
-        "LoanBank": "中国银行",
-        "AgencyFee": 500,
-        "IsHavePark": 1,
-        "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-        "Progress": "1",
-        "PaperState": "1",
-        "PaperStateRemark": "测试",
-        "IsEmergent": 0,
-        "EmergentFee": 0,
-        "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
-      },
-      {
-        "Guid": "381cabf0-7ae6-11e8-8a49-b92cc9fd401b",
-        "GroupGuid": "9245fe4a-d402-451c-b9ed-9c1a04247482",
-        "Name": "太仓塞纳丽舍小区9幢502室买卖合同",
-        "BuildingName": "9",
-        "RoomName": "502",
-        "Address": "太仓市郑和路157号",
-        "LandArea": "10.00",
-        "RoomArea": "109.52",
-        "Price": "1500000.00",
-        "IsLoan": 1,
-        "LoanBank": "中国银行",
-        "AgencyFee": 500,
-        "IsHavePark": 1,
-        "FillinBuyerGuid": "dr45fe4a-d402-451c-b9ed-8c1a04247482",
-        "Progress": "1",
-        "PaperState": "1",
-        "PaperStateRemark": "测试",
-        "IsEmergent": 0,
-        "EmergentFee": 0,
-        "UserGuid": "9245fe4a-d402-451c-b9ed-9c1bge247482"
+    if (this.groupGuid) {
+      this.buildingName = this.buildingName ? this.buildingName : '';
+      if (this.roomName) {
+        this.service.getTheContractDetailInfo(this.getContractDetailUrl, this.groupGuid, this.buildingName, this.roomName).subscribe(callback => {
+          const contractItem = callback['_contract'];
+          this.contractTotal = 1;
+          this.contractList = [contractItem];
+        });
+      } else {
+        this.refreshCondition.params.buildingname = this.buildingName;
+        this.service.getContracts(this.refreshCondition, this.groupGuid).subscribe((callback: any) => {
+          let { contract, meta: { counts } } = callback;
+          this.contractTotal = counts;
+          this.contractList = contract;
+        });
       }
-    ];
+    }
     this.isLoading = false;
   }
 

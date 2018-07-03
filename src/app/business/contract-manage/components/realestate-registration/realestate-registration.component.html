@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="column label-info">户口本信息页</div>
+  <div class="column">
+    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
+      <i class="anticon anticon-plus"></i>
+      <div class="ant-upload-text">Upload</div>
+    </nz-upload>
+  </div>
+  <div class="column label-info">户口本本人页</div>
+  <div class="column">
+    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
+      <i class="anticon anticon-plus"></i>
+      <div class="ant-upload-text">Upload</div>
+    </nz-upload>
+  </div>
+  <div class="clearFloat"></div>
+</div>
+<div class="row">
+  <div class="column label-info">户口本信息页</div>
+  <div class="column">
+    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
+      <i class="anticon anticon-plus"></i>
+      <div class="ant-upload-text">Upload</div>
+    </nz-upload>
+  </div>
+  <div class="column label-info">户口本本人页</div>
+  <div class="column">
+    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
+      <i class="anticon anticon-plus"></i>
+      <div class="ant-upload-text">Upload</div>
+    </nz-upload>
+  </div>
+  <div class="clearFloat"></div>
+</div>
+<div class="row">
+  <div class="column label-info">户口本信息页</div>
+  <div class="column">
+    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
+      <i class="anticon anticon-plus"></i>
+      <div class="ant-upload-text">Upload</div>
+    </nz-upload>
+  </div>
+  <div class="column label-info">户口本本人页</div>
+  <div class="column">
+    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
+      <i class="anticon anticon-plus"></i>
+      <div class="ant-upload-text">Upload</div>
+    </nz-upload>
+  </div>
+  <div class="clearFloat"></div>
+</div>
+
+<nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
+  (nzOnCancel)="previewVisible=false">
+  <ng-template #modalContent>
+    <img [src]="previewImage" [ngStyle]="{ 'width': '100%' }" />
+  </ng-template>
+</nz-modal>

@@ -6,14 +6,15 @@
   </app-module-header>
 </div>
 <div class="left-content">
-  <nz-tree [(ngModel)]="nodes" [nzShowLine]="true" [nzDefaultExpandedKeys]="expandKeys"
-    (nzExpandChange)="mouseAction('expand',$event)" (nzDblClick)="mouseAction('dblclick',$event)"
-    (nzContextMenu)="mouseAction('contextmenu', $event)" (nzClick)="mouseAction('click',$event)">
+  <nz-tree [(ngModel)]="nodes" [nzShowLine]="true" (nzExpandChange)="mouseAction('expand',$event)"
+    (nzDblClick)="mouseAction('dblclick',$event)" (nzContextMenu)="mouseAction('contextmenu', $event)"
+    (nzClick)="mouseAction('click',$event)">
   </nz-tree>
 </div>
 <div class="right-content">
-  <app-show-contact-list [isEdited]="isEdited" [(refresh)]="refreshContract" (contractListChange)="displayContractList=$event"
-    (choosedContract)="editTheContract($event)"></app-show-contact-list>
+  <app-show-contact-list [groupGuid]="choosedGroupGuid" [buildingName]="choosedBuildName"
+    [roomName]="choosedRoomName" [isEdited]="isEdited" [(refresh)]="refreshContract"
+    (contractListChange)="displayContractList=$event" (choosedContract)="editTheContract($event)"></app-show-contact-list>
 </div>
 <app-create-update-contract-modal [(isCreateOrUpdataModalVisible)]="isCreateOrUpdataModalVisible"
   [contractItem]="contractItem" [isCreate]="isCreate" (cre)="createOrUpdateTheContractItem($event)"></app-create-update-contract-modal>

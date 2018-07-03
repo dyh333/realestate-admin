@@ -1,4 +1,7 @@
 {
+  "getGroupsUrl": "http://122.112.247.228:3000/tcrs/v1/group/groups?name=&offset=1&limit=99999999",
+  "getGroupBuildingsUrl": "http://122.112.247.228:3000/tcrs/v1/contract/tree/{groupGuid}/buildings",
+  "getBuildingRoomsUrl": "http://122.112.247.228:3000/tcrs/v1/contract/tree/{groupGuid}/{buildingName}/rooms",
   "refreshCondition": {
     "url": "http://122.112.247.228:3000/tcrs/v1/contract/contracts/",
     "params": {
@@ -10,11 +13,11 @@
   "createContractUrl": "http://122.112.247.228:3000/tcrs/v1/contract/contract",
   "updateContractUrl": "http://122.112.247.228:3000/tcrs/v1/contract/contract/",
   "deleteContractsUrl": "http://122.112.247.228:3000/tcrs/v1/contract/contract/",
-  "getContractDetailUrl": "http://122.112.247.228:3000/tcrs/v1/contract/contract/",
+  "getContractDetailUrl": "http://122.112.247.228:3000/tcrs/v1/contract/contract/{groupGuid}/{buildingName}/{roomName}",
   "getBuyerUrl": "http://122.112.247.228:3000/tcrs/v1/buyer/buyers/",
   "createBuyerUrl": "http://122.112.247.228:3000/tcrs/v1/buyer/buyer",
   "updateBuyerUrl": "http://122.112.247.228:3000/tcrs/v1/buyer/buyer",
   "deleteBuyerUrl": "http://122.112.247.228:3000/tcrs/v1/buyer/buyer",
-  "getDectionary":"http://122.112.247.228:3000/tcrs/v1/dd/{name}/details",
-  "uploadImg":"http://122.112.247.228:3000/tcrs/v1/upload/upload/img"
+  "getDectionary": "http://122.112.247.228:3000/tcrs/v1/dd/{name}/details",
+  "uploadImgUrl": "http://122.112.247.228:3000/tcrs/v1/upload/upload/img"
 }
