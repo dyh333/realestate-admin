@@ -1,58 +1,102 @@
-<div class="row">
-  <div class="column label-info">户口本信息页</div>
-  <div class="column">
-    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
-      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
-      <i class="anticon anticon-plus"></i>
-      <div class="ant-upload-text">Upload</div>
-    </nz-upload>
+<div class="realestate-registration">
+  <div class="row">
+    <div class="column label-info">户口本信息页</div>
+    <div class="column upload-list">
+      <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+        [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 3" [nzPreview]="handlePreview">
+        <i class="anticon anticon-plus"></i>
+        <div class="ant-upload-text">Upload</div>
+      </nz-upload>
+    </div>
+    <div class="column label-info">户口本本人页</div>
+    <div class="column upload-list">
+      <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+        [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 3" [nzPreview]="handlePreview">
+        <i class="anticon anticon-plus"></i>
+        <div class="ant-upload-text">Upload</div>
+      </nz-upload>
+    </div>
+    <div class="clearFloat"></div>
   </div>
-  <div class="column label-info">户口本本人页</div>
-  <div class="column">
-    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
-      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
-      <i class="anticon anticon-plus"></i>
-      <div class="ant-upload-text">Upload</div>
-    </nz-upload>
+  <div class="row">
+    <div class="column label-info">买受人A身份证正面</div>
+    <div class="column upload-list">
+      <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+        [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 3" [nzPreview]="handlePreview">
+        <i class="anticon anticon-plus"></i>
+        <div class="ant-upload-text">Upload</div>
+      </nz-upload>
+    </div>
+    <div class="column label-info">买受人A身份证反面</div>
+    <div class="column upload-list">
+      <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+        [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 3" [nzPreview]="handlePreview">
+        <i class="anticon anticon-plus"></i>
+        <div class="ant-upload-text">Upload</div>
+      </nz-upload>
+    </div>
+    <div class="clearFloat"></div>
   </div>
-  <div class="clearFloat"></div>
+  <div class="row">
+    <div class="column label-info">买受人B身份证正面</div>
+    <div class="column upload-list">
+      <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+        [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 3" [nzPreview]="handlePreview">
+        <i class="anticon anticon-plus"></i>
+        <div class="ant-upload-text">Upload</div>
+      </nz-upload>
+    </div>
+    <div class="column label-info">买受人B身份证反面</div>
+    <div class="column upload-list">
+      <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
+        [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 3" [nzPreview]="handlePreview">
+        <i class="anticon anticon-plus"></i>
+        <div class="ant-upload-text">Upload</div>
+      </nz-upload>
+    </div>
+    <div class="clearFloat"></div>
+  </div>
+  <div class="row row-radio">
+    <div class="column radio-label-info">材料审批记录管理</div>
+    <div class="column radio-list">
+      <nz-radio-group>
+        <label nz-radio nzValue="A">A</label>
+        <label nz-radio nzValue="B">B</label>
+        <label nz-radio nzValue="C">C</label>
+        <label nz-radio nzValue="D">D</label>
+      </nz-radio-group>
+    </div>
+    <div class="clearFloat"></div>
+  </div>
+  <div class="row row-radio">
+    <div class="column radio-label-info">合同办理进度</div>
+    <div class="column radio-list">
+      <nz-radio-group>
+        <label nz-radio nzValue="A">A</label>
+        <label nz-radio nzValue="B">B</label>
+        <label nz-radio nzValue="C">C</label>
+        <label nz-radio nzValue="D">D</label>
+      </nz-radio-group>
+    </div>
+    <div class="clearFloat"></div>
+  </div>
+  <div class="row row-radio">
+    <div class="column radio-label-info">纸质材料状态</div>
+    <div class="column radio-list">
+      <nz-radio-group>
+        <label nz-radio nzValue="A">A</label>
+        <label nz-radio nzValue="B">B</label>
+        <label nz-radio nzValue="C">C</label>
+        <label nz-radio nzValue="D">D</label>
+      </nz-radio-group>
+    </div>
+    <div class="clearFloat"></div>
+  </div>
 </div>
-<div class="row">
-  <div class="column label-info">户口本信息页</div>
-  <div class="column">
-    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
-      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
-      <i class="anticon anticon-plus"></i>
-      <div class="ant-upload-text">Upload</div>
-    </nz-upload>
-  </div>
-  <div class="column label-info">户口本本人页</div>
-  <div class="column">
-    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
-      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
-      <i class="anticon anticon-plus"></i>
-      <div class="ant-upload-text">Upload</div>
-    </nz-upload>
-  </div>
-  <div class="clearFloat"></div>
-</div>
-<div class="row">
-  <div class="column label-info">户口本信息页</div>
-  <div class="column">
-    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
-      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
-      <i class="anticon anticon-plus"></i>
-      <div class="ant-upload-text">Upload</div>
-    </nz-upload>
-  </div>
-  <div class="column label-info">户口本本人页</div>
-  <div class="column">
-    <nz-upload class="upload-pic" [nzAction]="uploadImgUrl" nzListType="picture-card"
-      [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 5" [nzPreview]="handlePreview">
-      <i class="anticon anticon-plus"></i>
-      <div class="ant-upload-text">Upload</div>
-    </nz-upload>
-  </div>
+<div class="btn-list">
+  <button nz-button nzType="primary" style="float: left;">批量下载</button>
+  <button nz-button nzType="primary" style="float: right;margin-left: 10px;">保存</button>
+  <button nz-button nzType="default" style="float: right;">取消</button>
   <div class="clearFloat"></div>
 </div>
 
