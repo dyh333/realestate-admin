@@ -8,7 +8,9 @@ import { SharedModule } from '../../shared/shared.module';
 import {
   ShowContactListComponent,
   CreateUpdateContractModalComponent,
-  DeleteContractModalComponent
+  CreateUpdateContractComponent,
+  DeleteContractModalComponent,
+  RealestateRegistrationComponent
 } from './components';
 import { ContractManageService } from './servicves';
 
@@ -25,7 +27,9 @@ import { ContractManageService } from './servicves';
     ContractManageComponent,
     ShowContactListComponent,
     CreateUpdateContractModalComponent,
+    CreateUpdateContractComponent,
     DeleteContractModalComponent,
+    RealestateRegistrationComponent,
   ],
   providers: [ContractManageService]
 })

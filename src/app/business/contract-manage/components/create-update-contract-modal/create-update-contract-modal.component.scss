@@ -1,0 +1,33 @@
+.create-update-contract-modal {
+    ::ng-deep {
+        /* nz-modal */
+        .ant-modal-body {
+            padding: 0;
+        }
+        .ant-modal-footer {
+            padding: 0;
+        }
+        /* nz-tabs */
+        .ant-tabs-bar {
+            margin-bottom: 0;
+            border-bottom-color: #e0e0e0;
+        }
+        .ant-tabs-nav-container {
+            height: 50px;
+            padding-left: 31px;
+            padding-right: 31px;
+            line-height: 1.9;
+        }
+        .ant-tabs-ink-bar {
+            background-color: #2170c1;
+        }
+        .ant-tabs-tab {
+            margin-right: 30px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .ant-tabs-tabpane {
+            padding: 20px 30px;
+        }
+    }
+}

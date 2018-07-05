@@ -1,0 +1,45 @@
+.create-update-contract-form {
+    width: 100%;
+    ::ng-deep {
+        .ant-form-item-label {
+            width: 100%;
+        }
+    }
+}
+
+.na-table {
+    width: 100%;
+    ::ng-deep {
+        .ant-table-body {
+            table {
+                border-color: #e0e0e0;
+            }
+        }
+        .ant-table-tbody {
+            td {
+                height: 40px;
+                padding: 0;
+                line-height: 40px;
+                background-color: #f8f8f8;
+                border-color: #e0e0e0;
+                color: #333;
+            }
+        }
+        .ant-table-placeholder {
+            display: none;
+        }
+    }
+}
+
+.nz-input-number {
+    width: 100%;
+}
+
+.form-funcs {
+    width: 100%;
+    margin-top: 10px;
+    text-align: right;
+    button[nz-button] {
+        margin-left: 10px;
+    }
+}

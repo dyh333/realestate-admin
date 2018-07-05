@@ -1,0 +1,193 @@
+<form class="create-update-contract-form" nz-form [formGroup]="validateForm" (ngSubmit)="checkForm()">
+  <nz-table class="na-table" #rowSelectionTable nzBordered [nzNoResult]="''">
+    <tbody>
+      <tr>
+        <td>
+          <nz-form-label nzRequired nzFor="Name">合同名称</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <input nz-input formControlName="Name" id="Name">
+            <nz-form-explain *ngIf="validateForm.get('Name').dirty && validateForm.get('Name').errors">请输入合同名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+        <td>
+          <nz-form-label nzRequired nzFor="LoanBank">贷款银行</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <input nz-input formControlName="LoanBank" id="LoanBank">
+            <nz-form-explain *ngIf="validateForm.get('LoanBank').dirty && validateForm.get('LoanBank').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <nz-form-label nzRequired nzFor="BuildingName">幢号</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-input-number class="nz-input-number" formControlName="BuildingName" id="BuildingName"></nz-input-number>
+            <nz-form-explain *ngIf="validateForm.get('BuildingName').dirty && validateForm.get('BuildingName').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+        <td>
+          <nz-form-label nzRequired nzFor="AgencyFee">代办费</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-input-number class="nz-input-number" formControlName="AgencyFee" id="AgencyFee"></nz-input-number>
+            <nz-form-explain *ngIf="validateForm.get('AgencyFee').dirty && validateForm.get('AgencyFee').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <nz-form-label nzRequired nzFor="RoomName">室号</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-input-number class="nz-input-number" formControlName="RoomName" id="RoomName"></nz-input-number>
+            <nz-form-explain *ngIf="validateForm.get('RoomName').dirty && validateForm.get('RoomName').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+        <td>
+          <nz-form-label nzRequired nzFor="IsHavePark">是否含车位</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-select formControlName="IsHavePark">
+              <nz-option nzValue="1" nzLabel="是"></nz-option>
+              <nz-option nzValue="0" nzLabel="否"></nz-option>
+            </nz-select>
+            <nz-form-explain *ngIf="validateForm.get('IsHavePark').dirty && validateForm.get('IsHavePark').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <nz-form-label nzRequired nzFor="Address">坐落</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <input nz-input formControlName="Address" id="Address">
+            <nz-form-explain *ngIf="validateForm.get('Address').dirty && validateForm.get('Address').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+        <td>
+          <nz-form-label nzRequired nzFor="Progress">当前办理进度</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-select formControlName="Progress" id="Progress">
+              <nz-option nzLabel="资料提交" nzValue="1"></nz-option>
+              <nz-option nzLabel="正在受理" nzValue="2"></nz-option>
+              <nz-option nzLabel="提交通过" nzValue="3"></nz-option>
+              <nz-option nzLabel="提交未通过" nzValue="4"></nz-option>
+              <nz-option nzLabel="契税已交" nzValue="5"></nz-option>
+              <nz-option nzLabel="已出证" nzValue="6"></nz-option>
+              <nz-option nzLabel="办结" nzValue="7"></nz-option>
+            </nz-select>
+            <nz-form-explain *ngIf="validateForm.get('Progress').dirty && validateForm.get('Progress').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <nz-form-label nzRequired nzFor="LandArea">实测土地面积</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-input-number class="nz-input-number" formControlName="LandArea" id="LandArea"></nz-input-number>
+            <nz-form-explain *ngIf="validateForm.get('LandArea').dirty && validateForm.get('LandArea').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+        <td>
+          <nz-form-label nzRequired nzFor="PaperState">纸质材料状态</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-select formControlName="PaperState" id="PaperState">
+              <nz-option nzLabel="初始成册" nzValue="1"></nz-option>
+              <nz-option nzLabel="更新入册" nzValue="2"></nz-option>
+              <nz-option nzLabel="提交出库" nzValue="3"></nz-option>
+              <nz-option nzLabel="退回入库" nzValue="4"></nz-option>
+            </nz-select>
+            <nz-form-explain *ngIf="validateForm.get('PaperState').dirty && validateForm.get('PaperState').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <nz-form-label nzRequired nzFor="RoomArea">实测建筑面积</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-input-number class="nz-input-number" formControlName="RoomArea" id="RoomArea"></nz-input-number>
+            <nz-form-explain *ngIf="validateForm.get('RoomArea').dirty && validateForm.get('RoomArea').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+        <td>
+          <nz-form-label nzRequired nzFor="PaperStateRemark">纸质材料状态说明</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <input nz-input formControlName="PaperStateRemark" id="PaperStateRemark">
+            <nz-form-explain *ngIf="validateForm.get('PaperStateRemark').dirty && validateForm.get('PaperStateRemark').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+        <td>
+      </tr>
+      <tr>
+        <td>
+          <nz-form-label nzRequired nzFor="Price">实测后总价</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-input-number class="nz-input-number" formControlName="Price" id="Price"></nz-input-number>
+            <nz-form-explain *ngIf="validateForm.get('Price').dirty && validateForm.get('Price').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+        <td>
+          <nz-form-label nzRequired nzFor="IsEmergent">是否加急</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-select formControlName="IsEmergent">
+              <nz-option nzLabel="是" nzValue="1"></nz-option>
+              <nz-option nzLabel="否" nzValue="0"></nz-option>
+            </nz-select>
+            <nz-form-explain *ngIf="validateForm.get('IsEmergent').dirty && validateForm.get('IsEmergent').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <nz-form-label nzRequired nzFor="IsLoan">是否贷款</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-select formControlName="IsLoan">
+              <nz-option nzValue="1" nzLabel="是"></nz-option>
+              <nz-option nzValue="0" nzLabel="否"></nz-option>
+            </nz-select>
+            <nz-form-explain *ngIf="validateForm.get('IsLoan').dirty && validateForm.get('IsLoan').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+        <td>
+          <nz-form-label nzRequired nzFor="EmergentFee">加急费用</nz-form-label>
+        </td>
+        <td>
+          <nz-form-control>
+            <nz-input-number class="nz-input-number" formControlName="EmergentFee" id="EmergentFee"></nz-input-number>
+            <nz-form-explain *ngIf="validateForm.get('EmergentFee').dirty && validateForm.get('EmergentFee').errors">请输入贷款银行名称!</nz-form-explain>
+          </nz-form-control>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <div class="form-funcs">
+    <button nz-button nzType="primary" (click)="submitCreateOrUpdate()">保存</button>
+    <button nz-button nzType="default" (click)="cancleCreateOrUpdate()">取消</button>
+  </div>
+</form>

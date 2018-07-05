@@ -14,6 +14,44 @@ export class ContractManageService {
         return this.http.get(configUrl);
     }
 
+    /** 获取楼盘
+     *
+     *
+     * @param {string} url
+     * @returns {Observable<Object>}
+     * @memberof ContractManageService
+     */
+    getGroups(url: string): Observable<Object> {
+        return this.http.get(url);
+    }
+
+    /** 获取楼盘下的幢
+     *
+     *
+     * @param {string} url
+     * @param {string} groupGuid
+     * @returns {Observable<Object>}
+     * @memberof ContractManageService
+     */
+    getGroupBuildings(url: string, groupGuid: string): Observable<Object> {
+        const getGroupBuildingsUrl = url.replace('{groupGuid}', groupGuid);
+        return this.http.get(getGroupBuildingsUrl);
+    }
+
+    /** 获取幢下面的户室
+     *
+     *
+     * @param {string} url
+     * @param {string} groupGuid
+     * @param {string} buildingName
+     * @returns {Observable<Object>}
+     * @memberof ContractManageService
+     */
+    getBuildingRooms(url: string, groupGuid: string, buildingName: string): Observable<Object> {
+        const getBuildingRoomsUrl = url.replace('{groupGuid}', groupGuid).replace('{buildingName}', buildingName);
+        return this.http.get(getBuildingRoomsUrl);
+    }
+
     /** 根据条件获取合同列表
      *
      *
@@ -21,10 +59,25 @@ export class ContractManageService {
      * @returns {Observable<Object>}
      * @memberof ContractManageService
      */
-    getContracts(condition: Object): Observable<Object> {
+    getContracts(condition: Object, groupGuid: string): Observable<Object> {
         const params = condition['params'];
-        const url = `${condition['url']}?name=${params['name']}&offset=${params['pageNo']}&limit=${params['pageSize']}`;
+        const url = `${condition['url']}${groupGuid}?buildingname=${params['buildingname']}&offset=${params['pageNo']}&limit=${params['pageSize']}`;
         return this.http.get(url);
+    }
+
+    /** 获取合同的详细信息
+     *
+     *
+     * @param {string} url
+     * @param {string} groupGuid
+     * @param {string} buildingName
+     * @param {string} roomName
+     * @returns {Observable<Object>}
+     * @memberof ContractManageService
+     */
+    getTheContractDetailInfo(url: string, groupGuid: string, buildingName: string, roomName: string): Observable<Object> {
+        const detailInfoUrl = url.replace('{groupGuid}', groupGuid).replace('{buildingName}', buildingName).replace('{roomName}', roomName);
+        return this.http.get(detailInfoUrl);
     }
 
     /** 新增一条合同信息
