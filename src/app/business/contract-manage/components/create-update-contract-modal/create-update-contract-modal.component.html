@@ -8,17 +8,23 @@
   <ng-template #modalContent>
     <nz-tabset>
       <nz-tab nzTitle="合同信息">
-        <app-create-update-contract [(isCreate)]="isCreate" [contractItem]="contractItem"></app-create-update-contract>
+        <perfect-scrollbar class="perfect-scrollbar">
+          <app-create-update-contract [(isCreate)]="isCreate" [contractItem]="contractItem"></app-create-update-contract>
+        </perfect-scrollbar>
       </nz-tab>
       <nz-tab nzTitle="买受人信息">
-        Content of Tab Pane 2
+        <perfect-scrollbar class="perfect-scrollbar">
+          <app-create-update-buyers-info></app-create-update-buyers-info>
+        </perfect-scrollbar>
       </nz-tab>
       <nz-tab nzTitle="不动产登记信息">
-        <app-realestate-registration></app-realestate-registration>
+        <perfect-scrollbar class="perfect-scrollbar">
+          <app-create-update-realestate-registration></app-create-update-realestate-registration>
+        </perfect-scrollbar>
       </nz-tab>
-      <nz-tab nzTitle="消息通知">
+      <!-- <nz-tab nzTitle="消息通知">
         Content of Tab Pane 3
-      </nz-tab>
+      </nz-tab> -->
     </nz-tabset>
 
   </ng-template>

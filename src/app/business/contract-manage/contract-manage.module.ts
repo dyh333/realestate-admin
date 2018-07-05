@@ -10,9 +10,11 @@ import {
   CreateUpdateContractModalComponent,
   CreateUpdateContractComponent,
   DeleteContractModalComponent,
-  RealestateRegistrationComponent
+  CreateUpdateBuyersInfoComponent,
+  CreateUpdateRealestateRegistrationComponent
 } from './components';
 import { ContractManageService } from './servicves';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 @NgModule({
   imports: [
@@ -21,6 +23,7 @@ import { ContractManageService } from './servicves';
     ReactiveFormsModule,
     SharedModule,
     NgZorroAntdModule,
+    PerfectScrollbarModule,
     ContractManageRoutesModule,
   ],
   declarations: [
@@ -29,7 +32,8 @@ import { ContractManageService } from './servicves';
     CreateUpdateContractModalComponent,
     CreateUpdateContractComponent,
     DeleteContractModalComponent,
-    RealestateRegistrationComponent,
+    CreateUpdateBuyersInfoComponent,
+    CreateUpdateRealestateRegistrationComponent,
   ],
   providers: [ContractManageService]
 })

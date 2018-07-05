@@ -3,13 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { UploadFile } from 'ng-zorro-antd';
 
 @Component({
-  selector: 'app-realestate-registration',
-  templateUrl: './realestate-registration.component.html',
-  styleUrls: ['./realestate-registration.component.scss']
+  selector: 'app-create-update-realestate-registration',
+  templateUrl: './create-update-realestate-registration.component.html',
+  styleUrls: ['./create-update-realestate-registration.component.scss']
 })
-export class RealestateRegistrationComponent implements OnInit {
-
-  fileList = [
+export class CreateUpdateRealestateRegistrationComponent implements OnInit {
+  
+  fileList = [ 
     {
       uid: -1,
       name: 'xxx.png',
@@ -31,7 +31,7 @@ export class RealestateRegistrationComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.subscribe((data: { config }) => {
       const config = data.config;
-      console.log(config);
+      // console.log(config);
       this.uploadImgUrl = config['uploadImgUrl'];
     });
   }
