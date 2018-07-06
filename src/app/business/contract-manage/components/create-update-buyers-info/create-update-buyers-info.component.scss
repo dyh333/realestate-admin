@@ -1,13 +1,28 @@
-.create-update-contract-form {
+:host {
+    display: block;
     width: 100%;
-    ::ng-deep {
-        .ant-form-item-label {
-            width: 100%;
-        }
+    height: 100%;
+}
+
+.buyer-info {
+    width: 100%;
+}
+
+.info-header {
+    width: 100%;
+    height: 15px;
+    margin: 15px 0 10px 0;
+    padding-left: 10px;
+    line-height: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-left: 4px solid #0084d3;
+    &:first-child{
+        margin-top: 0;
     }
 }
 
-.na-table {
+.info-content {
     width: 100%;
     ::ng-deep {
         .ant-table-body {
@@ -18,7 +33,7 @@
         .ant-table-tbody {
             td {
                 height: 40px;
-                padding: 0;
+                padding: 0 10px;
                 line-height: 40px;
                 background-color: #f8f8f8;
                 border-color: #e0e0e0;
@@ -31,15 +46,16 @@
     }
 }
 
-.nz-input-number {
-    width: 100%;
+.content-item-label {
+    text-align: right;
 }
 
-.form-funcs {
+.info-footer {
     width: 100%;
     margin-top: 20px;
     text-align: right;
-    button[nz-button] {
-        margin-left: 10px;
-    }
+}
+
+button[nz-button] {
+    margin-left: 10px;
 }
